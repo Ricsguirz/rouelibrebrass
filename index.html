@@ -108,40 +108,62 @@
       <h3 class="mini-title">La formation</h3>
       <p class="formation-count"><strong>8</strong> musiciens</p>
 
-      <!-- Les dessins d'instruments sont dessinés directement en code (SVG).
-           Ils prennent la couleur cuivre du site et restent nets sur tous les écrans. -->
+      <!-- Dessins réalisés sur mesure d'après vos photos, directement en code (SVG).
+           Ils prennent la couleur cuivre du site et restent nets à n'importe quelle taille.
+           La classe "plein" désigne les parties remplies, "creux" les parties évidées. -->
       <ul class="instruments">
         <li>
-          <svg viewBox="0 0 64 44" aria-hidden="true">
-            <circle cx="6" cy="26" r="3.5"/>
-            <path d="M9 26h30"/>
-            <path d="M18 26v-9M26 26v-11M34 26v-9"/>
-            <path d="M18 17h16"/>
-            <path d="M39 26 L58 14 L58 38 Z"/>
+          <svg viewBox="0 0 128 96" aria-hidden="true">
+            <!-- embouchure -->
+            <path d="M8 50h8" class="epais"/>
+            <!-- tube principal -->
+            <path d="M16 50h70"/>
+            <!-- boucle de coulisse sous les pistons -->
+            <path d="M34 50v9a8 8 0 0 0 8 8h22a8 8 0 0 0 8-8v-9"/>
+            <!-- pistons -->
+            <rect x="42" y="26" width="10" height="26" rx="5" class="plein"/>
+            <rect x="57" y="24" width="10" height="28" rx="5" class="plein"/>
+            <rect x="72" y="26" width="10" height="26" rx="5" class="plein"/>
+            <!-- pavillon -->
+            <path d="M86 50 L120 29v42Z" class="plein"/>
           </svg>
           <span>Trompette</span>
         </li>
         <li>
-          <svg viewBox="0 0 64 44" aria-hidden="true">
-            <path d="M44 15H14a5.5 5.5 0 0 0 0 11h30"/>
-            <path d="M44 20.5 L60 10 L60 31 Z"/>
+          <svg viewBox="0 0 128 96" aria-hidden="true">
+            <!-- coulisse : deux tubes reliés par un U -->
+            <path d="M94 40H30a10 10 0 0 0 0 20h64"/>
+            <!-- barre de renfort de la coulisse -->
+            <path d="M44 40v20"/>
+            <!-- coude du pavillon -->
+            <path d="M94 40a9 9 0 0 0 0-18h-12"/>
+            <!-- pavillon -->
+            <path d="M94 50 L124 30v40Z" class="plein"/>
           </svg>
           <span>Trombone</span>
         </li>
         <li>
-          <svg viewBox="0 0 64 44" aria-hidden="true">
-            <circle cx="22" cy="27" r="13"/>
-            <path d="M33 18 L40 12"/>
-            <ellipse cx="51" cy="13" rx="11" ry="10"/>
+          <svg viewBox="0 0 128 96" aria-hidden="true">
+            <!-- grande boucle portée autour du corps -->
+            <circle cx="42" cy="58" r="28"/>
+            <!-- tube qui monte vers le pavillon -->
+            <path d="M66 44C76 28 84 20 94 18"/>
+            <!-- grand pavillon tourné vers l'avant -->
+            <ellipse cx="97" cy="30" rx="27" ry="25" class="plein"/>
+            <ellipse cx="97" cy="30" rx="11" ry="10" class="creux"/>
           </svg>
           <span>Sousaphone</span>
         </li>
         <li>
-          <svg viewBox="0 0 64 44" aria-hidden="true">
-            <circle cx="23" cy="27" r="13"/>
-            <circle cx="23" cy="27" r="4"/>
-            <path d="M40 12h20"/>
-            <path d="M50 12v20"/>
+          <svg viewBox="0 0 128 96" aria-hidden="true">
+            <!-- grosse caisse -->
+            <circle cx="44" cy="58" r="28"/>
+            <circle cx="44" cy="58" r="10" class="plein"/>
+            <!-- pieds -->
+            <path d="M24 78 L16 90M64 78 L72 90"/>
+            <!-- cymbale et son pied -->
+            <ellipse cx="97" cy="26" rx="26" ry="6" class="plein"/>
+            <path d="M97 30v50M84 80h26"/>
           </svg>
           <span>Batterie</span>
         </li>
