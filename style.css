@@ -175,8 +175,7 @@ a { color: inherit; }
 .section__grid,
 .gallery,
 .dates,
-.video,
-.video-todo,
+.videos,
 .booking { max-width: var(--largeur); margin-left: auto; margin-right: auto; }
 
 .section--dark   { background: var(--vert-nuit); color: var(--creme); }
@@ -244,27 +243,30 @@ a { color: inherit; }
 }
 .gallery img:hover { transform: scale(1.02); }
 
-/* ---------------- Vidéo ---------------- */
-.video {
-  position: relative;
-  aspect-ratio: 16 / 9;
-  border-radius: 8px;
-  overflow: hidden;
-  background: #000;
-  margin-top: 1.8rem;
+/* ---------------- Vidéos ---------------- */
+.videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 1.4rem;
+  margin: 1.8rem auto 2rem;
 }
-.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 
-.video-todo {
-  margin-top: 1.8rem;
-  padding: 2.6rem 1.5rem;
-  text-align: center;
-  border: 2px dashed rgba(15, 92, 62, 0.3);
-  border-radius: 10px;
-  background: rgba(15, 92, 62, 0.05);
+.video { margin: 0; }
+
+.video video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  background: #000;
+  border-radius: 8px;
 }
-.video-todo p { margin: 0.3rem 0; }
-.video-todo a { color: var(--vert); font-weight: 700; }
+
+.video figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--vert);
+}
 
 /* ---------------- Dates ---------------- */
 .dates { list-style: none; padding: 0; margin: 0 auto; }

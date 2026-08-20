@@ -6,7 +6,8 @@
 |---|---|
 | `index.html` | Tout le **contenu** du site : les textes, les dates, les liens. C'est ici que tu modifies. |
 | `style.css` | L'**apparence** : couleurs, tailles, mise en page. À toucher seulement si tu veux changer le style. |
-| `images/` | Les **photos**. Remplace les fichiers provisoires par les vôtres, en gardant les mêmes noms. |
+| `images/` | Les **photos** : `hero.jpg` (accueil), `photo-1.jpg` à `photo-6.jpg` (galerie), `logo.png`. |
+| `videos/` | Les **vidéos** : `video-1.mp4`, `video-2.mp4`, `video-3.mp4`. |
 
 ## Voir le site sur ton ordinateur
 
@@ -32,11 +33,29 @@ textes, contact, formation, dates, photos et logo.
 Ouvre `index.html` avec le Bloc-notes (clic droit > Ouvrir avec > Bloc-notes)
 pour modifier un texte. Les endroits sensibles sont signalés par des commentaires en français.
 
-## Mettre la vidéo YouTube
+## Ajouter ou remplacer une vidéo
 
-1. Sur YouTube, ouvre ta vidéo > **Partager** > **Intégrer**.
-2. Dans le code affiché, repère l'adresse `https://www.youtube.com/embed/xxxxxxxx`.
-3. Dans `index.html`, colle-la entre les guillemets de `src=""` de la balise `<iframe>`.
+Les vidéos sont hébergées directement sur le site, sans passer par YouTube.
+
+Pour en **remplacer** une : dépose ton fichier `.mp4` dans le dossier `videos/`
+en gardant le même nom (`video-1.mp4`, etc.).
+
+Pour en **ajouter** une : dépose le fichier dans `videos/`, puis dans `index.html`,
+section « Voir & écouter », copie un bloc entier :
+
+```html
+<figure class="video">
+  <video controls preload="metadata" playsinline>
+    <source src="videos/video-1.mp4" type="video/mp4">
+  </video>
+  <figcaption>Le Roue Libre Brass en action</figcaption>
+</figure>
+```
+
+Change le nom du fichier et la légende.
+
+⚠️ Garde des vidéos **courtes** (moins d'une minute) et sous **10 Mo**.
+Les vidéos venant de WhatsApp sont déjà au bon format.
 
 ## Ajouter une date de concert
 

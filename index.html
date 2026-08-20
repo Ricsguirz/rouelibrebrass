@@ -129,30 +129,44 @@
 <section class="section" id="voir">
   <h2 class="section__title">Voir &amp; écouter</h2>
   <p class="lead">La meilleure façon de savoir si on colle à votre événement : nous regarder jouer.</p>
-  <!-- QUAND VOUS AUREZ UNE VIDÉO :
-       1. supprimez le bloc <div class="video-todo"> ci-dessous
-       2. enlevez les deux lignes de commentaire qui encadrent le bloc <div class="video">
-       3. sur YouTube : Partager > Intégrer, copiez l'adresse commençant par
-          https://www.youtube.com/embed/... et collez-la dans src="" -->
+  <!-- POUR AJOUTER UNE VIDÉO : déposez le fichier .mp4 dans le dossier "videos",
+       puis copiez un bloc <figure class="video"> ... </figure> entier ci-dessous
+       en changeant le nom du fichier et la légende.
+       Les vidéos ne se téléchargent que si le visiteur clique dessus (preload="none"),
+       le site reste donc rapide à ouvrir. -->
 
-  <div class="video-todo">
-    <p>Vidéo à venir — en attendant, retrouvez-nous en images sur nos réseaux :</p>
-    <p>
-      <a href="https://www.facebook.com/profile.php?id=61554725690284" target="_blank" rel="noopener">Facebook</a>
-      &nbsp;·&nbsp;
-      <a href="https://www.instagram.com/rouelibrebrass" target="_blank" rel="noopener">Instagram</a>
-    </p>
+  <div class="videos">
+    <figure class="video">
+      <video controls preload="metadata" playsinline>
+        <source src="videos/video-1.mp4" type="video/mp4">
+        Votre navigateur ne peut pas lire cette vidéo.
+      </video>
+      <figcaption>Le Roue Libre Brass en action</figcaption>
+    </figure>
+
+    <figure class="video">
+      <video controls preload="metadata" playsinline>
+        <source src="videos/video-2.mp4" type="video/mp4">
+        Votre navigateur ne peut pas lire cette vidéo.
+      </video>
+      <figcaption>Un extrait de notre répertoire</figcaption>
+    </figure>
+
+    <figure class="video">
+      <video controls preload="metadata" playsinline>
+        <source src="videos/video-3.mp4" type="video/mp4">
+        Votre navigateur ne peut pas lire cette vidéo.
+      </video>
+      <figcaption>Déambulation et ambiance festive</figcaption>
+    </figure>
   </div>
 
-  <!--
-  <div class="video">
-    <iframe
-      src="https://www.youtube.com/embed/"
-      title="Le Roue Libre Brass en concert"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen></iframe>
-  </div>
-  -->
+  <p class="muted center small">
+    Retrouvez toutes nos vidéos sur
+    <a href="https://www.facebook.com/profile.php?id=61554725690284" target="_blank" rel="noopener">Facebook</a>
+    et
+    <a href="https://www.instagram.com/rouelibrebrass" target="_blank" rel="noopener">Instagram</a>.
+  </p>
 </section>
 
 <!-- ============ DATES ============ -->
