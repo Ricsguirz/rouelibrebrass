@@ -14,6 +14,16 @@ Double-clique sur `index.html`. Il s'ouvre dans ton navigateur. C'est exactement
 
 Après chaque modification : enregistre le fichier, puis appuie sur **F5** dans le navigateur pour rafraîchir.
 
+## ⚠️ À faire en premier : le vrai logo
+
+Le fichier `images/logo.png` est un **logo provisoire** (un rond vert avec « RLB »).
+
+Enregistre le vrai logo sous le nom **`logo.png`** dans le dossier `images/`, en écrasant
+le fichier existant. Idéalement en PNG à fond transparent, environ 600 px de large.
+
+Il apparaît à quatre endroits automatiquement : en haut de la page, sur l'image d'accueil,
+en bas de page, et comme icône dans l'onglet du navigateur.
+
 ## Les 6 choses à remplacer
 
 Ouvre `index.html` avec le Bloc-notes (clic droit > Ouvrir avec > Bloc-notes) et cherche les commentaires `<!-- À REMPLACER -->`.
