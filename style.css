@@ -103,9 +103,14 @@ a { color: inherit; }
   align-items: center;
   padding: 5rem clamp(1rem, 4vw, 3rem);
   color: var(--creme);
+  /* Le dégradé assombrit la gauche pour que le texte reste lisible,
+     et laisse la photo visible à droite. */
   background:
-    linear-gradient(rgba(5, 39, 26, 0.66), rgba(5, 39, 26, 0.88)),
-    /* À REMPLACER : votre plus belle photo, à mettre dans images/hero.jpg */
+    linear-gradient(100deg,
+      rgba(5, 39, 26, 0.94) 0%,
+      rgba(5, 39, 26, 0.86) 38%,
+      rgba(5, 39, 26, 0.55) 68%,
+      rgba(5, 39, 26, 0.42) 100%),
     url("images/hero.jpg") center / cover no-repeat,
     var(--vert-nuit);
 }
@@ -279,9 +284,24 @@ a { color: inherit; }
   font-size: 2.2rem;
   line-height: 1;
 }
+.date__day--range { font-size: 1.45rem; letter-spacing: -0.02em; }
 .date__month { display: block; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.14em; }
 
 .date__what h3 { margin: 0 0 0.2rem; font-size: 1.25rem; }
+
+.tag {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.15rem 0.6rem;
+  border: 1px solid rgba(246, 243, 234, 0.35);
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #9db3a8;
+  vertical-align: middle;
+}
 .date__what p { margin: 0; color: #9db3a8; font-size: 0.95rem; }
 
 /* ---------------- Booking ---------------- */
@@ -349,6 +369,13 @@ a { color: inherit; }
 
 /* ---------------- Téléphones et tablettes ---------------- */
 @media (max-width: 820px) {
+  /* Sur téléphone, le texte occupe toute la largeur : on assombrit partout. */
+  .hero {
+    background:
+      linear-gradient(rgba(5, 39, 26, 0.82), rgba(5, 39, 26, 0.92)),
+      url("images/hero.jpg") center / cover no-repeat,
+      var(--vert-nuit);
+  }
   .section__grid { grid-template-columns: 1fr; }
   .nav__links a:not(.btn) { display: none; }
   .nav__logo span { display: none; }

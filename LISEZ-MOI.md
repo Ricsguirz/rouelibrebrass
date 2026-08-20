@@ -14,35 +14,23 @@ Double-clique sur `index.html`. Il s'ouvre dans ton navigateur. C'est exactement
 
 Après chaque modification : enregistre le fichier, puis appuie sur **F5** dans le navigateur pour rafraîchir.
 
-## ⚠️ À faire en premier : le vrai logo
+## Ajouter ou remplacer des photos
 
-Le fichier `images/logo.png` est un **logo provisoire** (un rond vert avec « RLB »).
+Dépose les nouvelles photos, en vrac et sans les retoucher, dans le dossier
+`images/A-DEPOSER-ICI/`. Demande ensuite à Claude de les préparer : il les recadre,
+les compresse et les met en place.
 
-Enregistre le vrai logo sous le nom **`logo.png`** dans le dossier `images/`, en écrasant
-le fichier existant. Idéalement en PNG à fond transparent, environ 600 px de large.
+Si tu veux le faire toi-même : les photos de la galerie doivent s'appeler
+`photo-1.jpg` à `photo-6.jpg`, l'image d'accueil `hero.jpg`, et le logo `logo.png`.
+Passe-les d'abord sur https://squoosh.app pour descendre sous 300 Ko.
 
-Il apparaît à quatre endroits automatiquement : en haut de la page, sur l'image d'accueil,
-en bas de page, et comme icône dans l'onglet du navigateur.
+## Ce qu'il reste à faire
 
-## Les 6 choses à remplacer
+Il ne manque plus que la **vidéo** (voir ci-dessous). Tout le reste est en place :
+textes, contact, formation, dates, photos et logo.
 
-Ouvre `index.html` avec le Bloc-notes (clic droit > Ouvrir avec > Bloc-notes) et cherche les commentaires `<!-- À REMPLACER -->`.
-
-1. **La phrase d'accroche** — sous le grand titre
-2. **La bio du groupe** — section « Le groupe »
-3. **Les chiffres clés** — 12 musiciens, année de création, etc.
-4. **La vidéo YouTube** — voir ci-dessous
-5. **L'e-mail et le téléphone** — section « Nous faire jouer » (chaque info apparaît 2 fois, change bien les deux)
-6. **Les photos** — voir ci-dessous
-
-## Remplacer les photos
-
-1. Choisis 6 photos + 1 grande photo d'accueil.
-2. Renomme-les : `hero.jpg` (l'accueil), puis `photo-1.jpg` à `photo-6.jpg`.
-3. Colle-les dans le dossier `images/` en écrasant les fichiers provisoires.
-
-⚠️ Réduis le poids des photos avant : une photo de 5 Mo rend le site lent sur mobile.
-Passe-les sur https://squoosh.app (gratuit, sans inscription) et vise **moins de 300 Ko** par photo.
+Ouvre `index.html` avec le Bloc-notes (clic droit > Ouvrir avec > Bloc-notes)
+pour modifier un texte. Les endroits sensibles sont signalés par des commentaires en français.
 
 ## Mettre la vidéo YouTube
 
