@@ -1,0 +1,335 @@
+/* =========================================================
+   LE ROUE LIBRE BRASS — feuille de style
+   Les couleurs du site sont définies une seule fois ci-dessous.
+   Changez une valeur ici et elle change partout sur le site.
+   ========================================================= */
+
+:root {
+  --noir:      #12100e;
+  --noir-doux: #1c1917;
+  --creme:     #f7f3ec;
+  --cuivre:    #d98324;   /* la couleur principale (boutons, titres) */
+  --cuivre-vif:#f0a04b;
+  --gris:      #8b837a;
+  --largeur:   1140px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--creme);
+  color: var(--noir);
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; }
+
+/* ---------------- Barre de navigation ---------------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem clamp(1rem, 4vw, 3rem);
+  background: rgba(18, 16, 14, 0.92);
+  backdrop-filter: blur(8px);
+  color: var(--creme);
+}
+
+.nav__logo {
+  font-family: "Anton", Impact, sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.09em;
+  text-decoration: none;
+  color: var(--creme);
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.8rem, 2vw, 1.8rem);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.nav__links a { text-decoration: none; }
+.nav__links a:hover { color: var(--cuivre-vif); }
+
+/* ---------------- Boutons ---------------- */
+.btn {
+  display: inline-block;
+  padding: 0.85rem 1.7rem;
+  background: var(--cuivre);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.btn:hover { background: var(--cuivre-vif); transform: translateY(-2px); color: #fff; }
+
+.btn--small { padding: 0.55rem 1.1rem; font-size: 0.85rem; }
+
+.btn--ghost {
+  background: transparent;
+  color: var(--creme);
+  border: 2px solid rgba(247, 243, 236, 0.45);
+}
+.btn--ghost:hover { background: rgba(247, 243, 236, 0.12); color: var(--creme); }
+
+/* ---------------- Accueil ---------------- */
+.hero {
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  padding: 5rem clamp(1rem, 4vw, 3rem);
+  color: var(--creme);
+  background:
+    linear-gradient(rgba(18, 16, 14, 0.62), rgba(18, 16, 14, 0.82)),
+    /* À REMPLACER : mettez votre plus belle photo dans images/hero.jpg */
+    url("images/hero.jpg") center / cover no-repeat,
+    var(--noir);
+}
+
+.hero__inner { max-width: var(--largeur); margin: 0 auto; width: 100%; }
+
+.hero__kicker {
+  margin: 0 0 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cuivre-vif);
+}
+
+.hero__title {
+  margin: 0;
+  font-family: "Anton", Impact, sans-serif;
+  font-size: clamp(3rem, 11vw, 8rem);
+  line-height: 0.9;
+  letter-spacing: 0.01em;
+}
+
+.hero__baseline {
+  max-width: 34ch;
+  margin: 1.6rem 0 2.4rem;
+  font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+}
+
+.hero__actions { display: flex; flex-wrap: wrap; gap: 0.9rem; }
+
+/* ---------------- Bandeau de chiffres ---------------- */
+.strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  background: var(--cuivre);
+  color: #fff;
+  text-align: center;
+}
+
+.strip__item { padding: 1.6rem 1rem; }
+.strip__item strong {
+  display: block;
+  font-family: "Anton", Impact, sans-serif;
+  font-size: 2rem;
+  line-height: 1;
+}
+.strip__item span { font-size: 0.85rem; opacity: 0.9; }
+
+/* ---------------- Sections ---------------- */
+.section {
+  padding: clamp(3.5rem, 8vw, 6rem) clamp(1rem, 4vw, 3rem);
+}
+.section > *,
+.section__grid,
+.gallery,
+.dates,
+.video,
+.booking { max-width: var(--largeur); margin-left: auto; margin-right: auto; }
+
+.section--dark { background: var(--noir); color: var(--creme); }
+.section--dark a { color: var(--cuivre-vif); }
+.section--accent { background: var(--noir-doux); color: var(--creme); }
+
+.section__title {
+  font-family: "Anton", Impact, sans-serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  line-height: 1;
+  margin: 0 0 1.6rem;
+  text-transform: uppercase;
+}
+
+.section__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.mini-title {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cuivre);
+  margin: 2rem 0 0.6rem;
+}
+.mini-title:first-child { margin-top: 0; }
+
+.lead { font-size: 1.15rem; max-width: 60ch; }
+.muted { color: var(--gris); }
+.section--dark .muted, .section--accent .muted { color: #a9a099; }
+.center { text-align: center; }
+.small { font-size: 0.9rem; }
+
+.list { list-style: none; padding: 0; margin: 0; }
+.list li {
+  padding: 0.7rem 0 0.7rem 1.4rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+  position: relative;
+}
+.list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--cuivre);
+}
+
+/* ---------------- Galerie photo ---------------- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.9rem;
+}
+.gallery img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 6px;
+  background: #2a2622;
+  transition: transform 0.25s ease;
+}
+.gallery img:hover { transform: scale(1.02); }
+
+/* ---------------- Vidéo ---------------- */
+.video {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+  margin-top: 1.8rem;
+}
+.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* ---------------- Dates ---------------- */
+.dates { list-style: none; padding: 0; margin: 0 auto; }
+
+.date {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  padding: 1.3rem 0;
+  border-bottom: 1px solid rgba(247, 243, 236, 0.14);
+}
+
+.date__when {
+  flex: 0 0 auto;
+  width: 78px;
+  text-align: center;
+  color: var(--cuivre-vif);
+}
+.date__day {
+  display: block;
+  font-family: "Anton", Impact, sans-serif;
+  font-size: 2.2rem;
+  line-height: 1;
+}
+.date__month {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.date__what h3 { margin: 0 0 0.2rem; font-size: 1.25rem; }
+.date__what p { margin: 0; color: #a9a099; font-size: 0.95rem; }
+
+/* ---------------- Booking ---------------- */
+.booking { text-align: center; }
+.booking .lead { margin-left: auto; margin-right: auto; }
+
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin: 2.4rem auto 1.6rem;
+  max-width: 700px;
+}
+
+.card {
+  display: block;
+  padding: 1.5rem 1rem;
+  background: rgba(247, 243, 236, 0.06);
+  border: 1px solid rgba(247, 243, 236, 0.16);
+  border-radius: 10px;
+  text-decoration: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.card:hover { border-color: var(--cuivre); background: rgba(217, 131, 36, 0.12); }
+
+.card__label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cuivre-vif);
+  margin-bottom: 0.4rem;
+}
+.card__value { display: block; font-size: 1.15rem; font-weight: 600; }
+
+/* ---------------- Pied de page ---------------- */
+.footer {
+  background: var(--noir);
+  color: var(--creme);
+  text-align: center;
+  padding: 3rem 1.5rem 2.5rem;
+  border-top: 1px solid rgba(247, 243, 236, 0.12);
+}
+.footer__brand {
+  font-family: "Anton", Impact, sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.1em;
+}
+.footer__social {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.4rem;
+  margin: 1.2rem 0;
+  font-weight: 600;
+}
+.footer__social a { color: var(--cuivre-vif); text-decoration: none; }
+.footer__social a:hover { text-decoration: underline; }
+.footer__legal { margin: 0; font-size: 0.85rem; color: var(--gris); }
+
+/* ---------------- Téléphones et tablettes ---------------- */
+@media (max-width: 820px) {
+  .section__grid { grid-template-columns: 1fr; }
+  .nav__links a:not(.btn) { display: none; }
+  .hero { min-height: 78vh; }
+}
