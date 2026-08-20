@@ -189,8 +189,20 @@ a { color: inherit; }
   font-family: "Anton", Impact, sans-serif;
   font-size: clamp(2rem, 5vw, 3.2rem);
   line-height: 1;
-  margin: 0 0 1.6rem;
+  margin: 0 0 2.4rem;
   text-transform: uppercase;
+  text-align: center;
+}
+
+/* Petit trait cuivre sous chaque titre de section */
+.section__title::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 4px;
+  margin: 0.9rem auto 0;
+  border-radius: 2px;
+  background: var(--cuivre);
 }
 .section--dark .section__title,
 .section--accent .section__title { color: var(--creme); }
