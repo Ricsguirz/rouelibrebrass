@@ -168,6 +168,9 @@ a { color: inherit; }
 }
 .strip__item span { font-size: 0.85rem; opacity: 0.92; }
 
+/* Bloc dont le texte est long : on réduit la taille pour qu'il tienne sur une ligne */
+.strip__item--texte strong { font-size: 1.3rem; }
+
 /* ---------------- Sections ---------------- */
 .section { padding: clamp(3.5rem, 8vw, 6rem) clamp(1rem, 4vw, 3rem); }
 
@@ -199,12 +202,12 @@ a { color: inherit; }
 }
 
 .mini-title {
-  font-size: 0.8rem;
+  font-size: 1.05rem;
   font-weight: 800;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--vert);
-  margin: 2rem 0 0.6rem;
+  margin: 2.4rem 0 0.8rem;
 }
 .mini-title:first-child { margin-top: 0; }
 
