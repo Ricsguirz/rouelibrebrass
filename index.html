@@ -4,9 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- ===== TITRE ET DESCRIPTION (ce que Google affiche dans ses résultats) ===== -->
-<title>Le Roue Libre Brass — Streetband de cuivres en Drôme-Ardèche</title>
-<meta name="description" content="Le Roue Libre Brass, streetband de 8 musiciens basé dans la Drôme. Nous revisitons les musiques de toutes générations dans un style moderne et festif : mariages, fêtes de village, festivals, apéritifs. Drôme, Ardèche, Isère, Rhône et Loire.">
+<!-- ===== TITRE ET DESCRIPTION (ce que Google affiche dans ses résultats) =====
+     Les mots placés EN PREMIER comptent le plus. On met donc « fanfare » et
+     « banda » avant le nom du groupe : c'est ce que tapent les organisateurs,
+     alors que personne ne cherche « streetband ». -->
+<title>Fanfare &amp; banda en Drôme-Ardèche — Le Roue Libre Brass</title>
+<meta name="description" content="Fanfare de rue et banda de 8 cuivres basée dans la Drôme. Le Roue Libre Brass anime vos fêtes de village, mariages, festivals, apéritifs et repas en Drôme, Ardèche, Isère, Rhône et Loire.">
+
+<link rel="canonical" href="https://rouelibrebrass.fr/">
 
 <!-- Icône affichée dans l'onglet du navigateur -->
 <link rel="icon" href="images/logo.png" type="image/png">
@@ -14,8 +19,8 @@
 <!-- Aperçu affiché quand on partage le lien sur Facebook, WhatsApp, etc.
      Ces adresses doivent être COMPLÈTES (https://…), sinon l'aperçu ne s'affiche pas.
      Adresses du domaine rouelibrebrass.fr. -->
-<meta property="og:title" content="Le Roue Libre Brass — Streetband de cuivres">
-<meta property="og:description" content="Nous revisitons les musiques de toutes générations dans un style moderne et festif. Mariages, fêtes de village, festivals, apéritifs.">
+<meta property="og:title" content="Le Roue Libre Brass — Fanfare &amp; banda en Drôme-Ardèche">
+<meta property="og:description" content="Fanfare de rue et banda de 8 cuivres. Nous animons vos fêtes de village, mariages, festivals et apéritifs en Drôme, Ardèche, Isère, Rhône et Loire.">
 <meta property="og:image" content="https://rouelibrebrass.fr/images/photo-1.jpg">
 <meta property="og:url" content="https://rouelibrebrass.fr/">
 <meta property="og:type" content="website">
@@ -26,6 +31,104 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+
+<!-- ===== FICHE D'IDENTITÉ POUR GOOGLE =====
+     Ce bloc n'est pas visible sur la page : il décrit le groupe dans un format
+     que Google comprend directement. C'est ce qui permet d'apparaître comme
+     "groupe de musique" plutôt que comme une page web quelconque.
+     À METTRE À JOUR quand les dates changent (voir la partie "Event" plus bas). -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MusicGroup",
+  "@id": "https://rouelibrebrass.fr/#groupe",
+  "name": "Le Roue Libre Brass",
+  "alternateName": ["Roue Libre Brass", "RLB"],
+  "description": "Fanfare de rue et banda composée de 8 musiciens cuivres, basée dans la Drôme. Le Roue Libre Brass revisite les musiques de toutes générations dans un style moderne et festif pour les fêtes de village, mariages, festivals, apéritifs et repas.",
+  "genre": ["Fanfare", "Banda", "Brass band", "Musique festive", "Funk", "Variété"],
+  "foundingDate": "2023",
+  "url": "https://rouelibrebrass.fr/",
+  "logo": "https://rouelibrebrass.fr/images/logo.png",
+  "image": "https://rouelibrebrass.fr/images/photo-1.jpg",
+  "email": "rouelibrebrass@gmail.com",
+  "telephone": "+33622381405",
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "Drôme",
+    "addressCountry": "FR"
+  },
+  "areaServed": [
+    { "@type": "AdministrativeArea", "name": "Drôme" },
+    { "@type": "AdministrativeArea", "name": "Ardèche" },
+    { "@type": "AdministrativeArea", "name": "Isère" },
+    { "@type": "AdministrativeArea", "name": "Rhône" },
+    { "@type": "AdministrativeArea", "name": "Loire" }
+  ],
+  "sameAs": [
+    "https://www.facebook.com/profile.php?id=61554725690284",
+    "https://www.instagram.com/rouelibrebrass",
+    "https://maps.app.goo.gl/cHWB6wDW7hw9hALg7"
+  ]
+}
+</script>
+
+<!-- ===== LES DATES, POUR QUE GOOGLE LES AFFICHE =====
+     Chaque bloc correspond à une date de la section "Prochaines dates".
+     Quand tu ajoutes ou supprimes une date sur la page, pense à faire pareil ici.
+     Format des dates : AAAA-MM-JJ. La soirée privée n'y figure volontairement pas. -->
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Le Roue Libre Brass à la fête du village de Najac",
+    "startDate": "2026-08-22",
+    "endDate": "2026-08-23",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "name": "Najac",
+      "address": { "@type": "PostalAddress", "addressLocality": "Najac", "addressRegion": "Aveyron", "addressCountry": "FR" }
+    },
+    "performer": { "@id": "https://rouelibrebrass.fr/#groupe" },
+    "image": "https://rouelibrebrass.fr/images/photo-3.jpg",
+    "url": "https://rouelibrebrass.fr/#dates"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Le Roue Libre Brass à la fête de l'agriculture",
+    "startDate": "2026-08-30",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "name": "Saint-Thomas-en-Royans",
+      "address": { "@type": "PostalAddress", "addressLocality": "Saint-Thomas-en-Royans", "addressRegion": "Drôme", "addressCountry": "FR" }
+    },
+    "performer": { "@id": "https://rouelibrebrass.fr/#groupe" },
+    "image": "https://rouelibrebrass.fr/images/photo-1.jpg",
+    "url": "https://rouelibrebrass.fr/#dates"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Le Roue Libre Brass à la soirée des pompiers",
+    "startDate": "2026-10-03",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "name": "Quintenas",
+      "address": { "@type": "PostalAddress", "addressLocality": "Quintenas", "addressRegion": "Ardèche", "addressCountry": "FR" }
+    },
+    "performer": { "@id": "https://rouelibrebrass.fr/#groupe" },
+    "image": "https://rouelibrebrass.fr/images/photo-1.jpg",
+    "url": "https://rouelibrebrass.fr/#dates"
+  }
+]
+</script>
 </head>
 <body>
 
@@ -47,7 +150,7 @@
 <section class="hero" id="top">
   <div class="hero__inner">
     <img class="hero__logo" src="images/logo.png" alt="Logo du Roue Libre Brass">
-    <p class="hero__kicker">Streetband de cuivres · Drôme</p>
+    <p class="hero__kicker">Fanfare &amp; banda de cuivres · Drôme</p>
     <h1 class="hero__title">LE ROUE<br>LIBRE BRASS</h1>
     <p class="hero__baseline">
       Un spectacle qui va vous faire danser et chanter :
