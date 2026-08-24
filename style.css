@@ -31,7 +31,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-img { max-width: 100%; display: block; }
+/* height:auto est indispensable : les images portent maintenant leurs dimensions
+   réelles dans le code HTML (pour éviter que la page saute au chargement).
+   Sans cette ligne, la hauteur inscrite dans le HTML s'appliquerait telle quelle
+   et déformerait les photos. */
+img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; }
 
 /* ---------------- Barre de navigation ---------------- */
