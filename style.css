@@ -111,7 +111,7 @@ a { color: inherit; }
       rgba(5, 39, 26, 0.86) 38%,
       rgba(5, 39, 26, 0.55) 68%,
       rgba(5, 39, 26, 0.42) 100%),
-    url("images/hero.jpg") center / cover no-repeat,
+    url("images/fanfare-roue-libre-brass-chabeuil.jpg") center / cover no-repeat,
     var(--vert-nuit);
 }
 
@@ -443,7 +443,7 @@ a { color: inherit; }
   .hero {
     background:
       linear-gradient(rgba(5, 39, 26, 0.82), rgba(5, 39, 26, 0.92)),
-      url("images/hero.jpg") center / cover no-repeat,
+      url("images/fanfare-roue-libre-brass-chabeuil.jpg") center / cover no-repeat,
       var(--vert-nuit);
   }
   .section__grid { grid-template-columns: 1fr; }

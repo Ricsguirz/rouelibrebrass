@@ -6,7 +6,7 @@
 |---|---|
 | `index.html` | Tout le **contenu** du site : les textes, les dates, les liens. C'est ici que tu modifies. |
 | `style.css` | L'**apparence** : couleurs, tailles, mise en page. À toucher seulement si tu veux changer le style. |
-| `images/` | Les **photos** : `hero.jpg` (accueil), `photo-1.jpg` à `photo-6.jpg` (galerie), `logo.png`. |
+| `images/` | Les **photos** : noms descriptifs pour le référencement Google Images (ne pas les renommer). |
 | `videos/` | Les **vidéos** : `video-1.mp4`, `video-2.mp4`, `video-3.mp4`. |
 
 ## Voir le site sur ton ordinateur
@@ -21,8 +21,8 @@ Dépose les nouvelles photos, en vrac et sans les retoucher, dans le dossier
 `images/A-DEPOSER-ICI/`. Demande ensuite à Claude de les préparer : il les recadre,
 les compresse et les met en place.
 
-Si tu veux le faire toi-même : les photos de la galerie doivent s'appeler
-`photo-1.jpg` à `photo-6.jpg`, l'image d'accueil `hero.jpg`, et le logo `logo.png`.
+Si tu veux le faire toi-même : garde exactement le nom de fichier existant :
+les noms sont descriptifs pour Google Images.
 Passe-les d'abord sur https://squoosh.app pour descendre sous 300 Ko.
 
 ## Ce qu'il reste à faire

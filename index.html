@@ -13,15 +13,19 @@
 
 <link rel="canonical" href="https://rouelibrebrass.fr/">
 
+<!-- Charge la photo d'accueil en priorité : c'est le premier élément visible,
+     et Google mesure le temps qu'il met à s'afficher. -->
+<link rel="preload" as="image" href="images/fanfare-roue-libre-brass-chabeuil.jpg" fetchpriority="high">
+
 <!-- Icône affichée dans l'onglet du navigateur -->
-<link rel="icon" href="images/logo.png" type="image/png">
+<link rel="icon" href="images/logo-roue-libre-brass.png" type="image/png">
 
 <!-- Aperçu affiché quand on partage le lien sur Facebook, WhatsApp, etc.
      Ces adresses doivent être COMPLÈTES (https://…), sinon l'aperçu ne s'affiche pas.
      Adresses du domaine rouelibrebrass.fr. -->
 <meta property="og:title" content="Le Roue Libre Brass — Fanfare &amp; banda en Drôme-Ardèche">
 <meta property="og:description" content="Fanfare de rue et banda de 8 cuivres. Nous animons vos fêtes de village, mariages, festivals et apéritifs en Drôme, Ardèche, Isère, Rhône et Loire.">
-<meta property="og:image" content="https://rouelibrebrass.fr/images/photo-1.jpg">
+<meta property="og:image" content="https://rouelibrebrass.fr/images/fanfare-banda-roue-libre-brass-drome.jpg">
 <meta property="og:url" content="https://rouelibrebrass.fr/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
@@ -48,8 +52,8 @@
   "genre": ["Fanfare", "Banda", "Brass band", "Musique festive", "Funk", "Variété"],
   "foundingDate": "2023",
   "url": "https://rouelibrebrass.fr/",
-  "logo": "https://rouelibrebrass.fr/images/logo.png",
-  "image": "https://rouelibrebrass.fr/images/photo-1.jpg",
+  "logo": "https://rouelibrebrass.fr/images/logo-roue-libre-brass.png",
+  "image": "https://rouelibrebrass.fr/images/fanfare-banda-roue-libre-brass-drome.jpg",
   "email": "contact@rouelibrebrass.fr",
   "telephone": "+33622381405",
   "address": {
@@ -92,7 +96,7 @@
       "address": { "@type": "PostalAddress", "addressLocality": "Najac", "addressRegion": "Aveyron", "addressCountry": "FR" }
     },
     "performer": { "@id": "https://rouelibrebrass.fr/#groupe" },
-    "image": "https://rouelibrebrass.fr/images/photo-3.jpg",
+    "image": "https://rouelibrebrass.fr/images/banda-roue-libre-brass-najac.jpg",
     "url": "https://rouelibrebrass.fr/#dates"
   },
   {
@@ -108,7 +112,7 @@
       "address": { "@type": "PostalAddress", "addressLocality": "Saint-Thomas-en-Royans", "addressRegion": "Drôme", "addressCountry": "FR" }
     },
     "performer": { "@id": "https://rouelibrebrass.fr/#groupe" },
-    "image": "https://rouelibrebrass.fr/images/photo-1.jpg",
+    "image": "https://rouelibrebrass.fr/images/fanfare-banda-roue-libre-brass-drome.jpg",
     "url": "https://rouelibrebrass.fr/#dates"
   },
   {
@@ -124,7 +128,7 @@
       "address": { "@type": "PostalAddress", "addressLocality": "Quintenas", "addressRegion": "Ardèche", "addressCountry": "FR" }
     },
     "performer": { "@id": "https://rouelibrebrass.fr/#groupe" },
-    "image": "https://rouelibrebrass.fr/images/photo-1.jpg",
+    "image": "https://rouelibrebrass.fr/images/fanfare-banda-roue-libre-brass-drome.jpg",
     "url": "https://rouelibrebrass.fr/#dates"
   }
 ]
@@ -135,7 +139,7 @@
 <!-- ============ BARRE DE NAVIGATION ============ -->
 <header class="nav">
   <a class="nav__logo" href="#top">
-    <img src="images/logo.png" alt="Logo du Roue Libre Brass">
+    <img src="images/logo-roue-libre-brass.png" width="600" height="561" alt="Logo du Roue Libre Brass">
     <span>ROUE LIBRE BRASS</span>
   </a>
   <nav class="nav__links">
@@ -149,7 +153,7 @@
 <!-- ============ ACCUEIL ============ -->
 <section class="hero" id="top">
   <div class="hero__inner">
-    <img class="hero__logo" src="images/logo.png" alt="Logo du Roue Libre Brass">
+    <img class="hero__logo" src="images/logo-roue-libre-brass.png" width="600" height="561" alt="Logo du Roue Libre Brass, fanfare et banda de la Drôme">
     <p class="hero__kicker">Fanfare &amp; banda de cuivres · Drôme</p>
     <h1 class="hero__title">LE ROUE<br>LIBRE BRASS</h1>
     <p class="hero__baseline">
@@ -195,7 +199,7 @@
       </p>
 
       <figure class="groupe-photo">
-        <img src="images/photo-1.jpg" alt="Les huit musiciens du Roue Libre Brass, polos verts et cuivres à la main">
+        <img src="images/fanfare-banda-roue-libre-brass-drome.jpg" width="1000" height="750" alt="Les huit musiciens de la fanfare Le Roue Libre Brass, trompettes, trombones et sousaphone">
       </figure>
     </div>
     <div>
@@ -284,15 +288,18 @@
 
 <!-- ============ PHOTOS ============ -->
 <section class="section section--dark" id="photos">
-  <h2 class="section__title">En images</h2>
+  <h2 class="section__title">La fanfare en images</h2>
   <div class="gallery">
     <!-- POUR CHANGER UNE PHOTO : remplacez le fichier dans le dossier "images"
-         en gardant exactement le même nom (photo-1.jpg, photo-2.jpg…). -->
-    <img src="images/photo-2.jpg" alt="Le Roue Libre Brass en déambulation lors du carnaval des Fauconnières" loading="lazy">
-    <img src="images/photo-3.jpg" alt="Le Roue Libre Brass sur la place du village de Najac" loading="lazy">
-    <img src="images/photo-4.jpg" alt="Animation d'un repas de truffes en salle des fêtes" loading="lazy">
-    <img src="images/photo-5.jpg" alt="Le groupe en soirée lors de l'animation d'un anniversaire" loading="lazy">
-    <img src="images/photo-6.jpg" alt="Le Roue Libre Brass dans un champ face au Vercors, à ses débuts" loading="lazy">
+         en gardant exactement le même nom de fichier.
+         Les noms sont volontairement descriptifs : c'est ainsi que Google Images
+         comprend ce que montre la photo. Le texte "alt" sert à la même chose,
+         et permet aussi aux personnes malvoyantes de savoir ce qu'il y a dessus. -->
+    <img src="images/fanfare-carnaval-les-fauconnieres.jpg" width="1000" height="750" alt="La fanfare Le Roue Libre Brass en déambulation au carnaval des Fauconnières" loading="lazy">
+    <img src="images/banda-roue-libre-brass-najac.jpg" width="1000" height="750" alt="La banda Le Roue Libre Brass sur la place du village de Najac" loading="lazy">
+    <img src="images/fanfare-animation-repas-truffes.jpg" width="1000" height="750" alt="Fanfare de cuivres animant un repas de truffes en salle des fêtes" loading="lazy">
+    <img src="images/fanfare-animation-anniversaire.jpg" width="1000" height="750" alt="Le Roue Libre Brass animant une soirée d'anniversaire" loading="lazy">
+    <img src="images/fanfare-cuivres-roue-libre-brass-vercors.jpg" width="1000" height="750" alt="Les musiciens du Roue Libre Brass dans un champ de la Drôme face au Vercors" loading="lazy">
   </div>
 </section>
 
@@ -421,7 +428,7 @@
 
 <!-- ============ PIED DE PAGE ============ -->
 <footer class="footer">
-  <img class="footer__logo" src="images/logo.png" alt="Logo du Roue Libre Brass">
+  <img class="footer__logo" src="images/logo-roue-libre-brass.png" width="600" height="561" alt="Logo du Roue Libre Brass">
   <div class="footer__brand">LE ROUE LIBRE BRASS</div>
   <nav class="footer__social">
     <a href="https://www.facebook.com/profile.php?id=61554725690284" target="_blank" rel="noopener">Facebook</a>
