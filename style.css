@@ -352,6 +352,23 @@ a { color: inherit; }
   border-radius: 8px;
 }
 
+/* Légende sous chaque vidéo : le morceau joué, puis le contexte */
+.video figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-top: 0.6rem;
+}
+.video figcaption strong {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--vert);
+}
+.video figcaption span {
+  font-size: 0.85rem;
+  color: var(--gris);
+}
+
 
 /* ---------------- Questions fréquentes ---------------- */
 .faq {
