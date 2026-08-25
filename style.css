@@ -310,8 +310,20 @@ a { color: inherit; }
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 0.9rem;
+  gap: 1.5rem 0.9rem;
 }
+
+.gallery__item { margin: 0; }
+
+/* Légende sous chaque photo : lieu et année de la prestation */
+.gallery figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--cuivre-vif);
+}
+
 .gallery img {
   width: 100%;
   aspect-ratio: 4 / 3;
