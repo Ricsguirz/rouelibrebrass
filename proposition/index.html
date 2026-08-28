@@ -57,9 +57,12 @@
     <section class="bloc">
       <h2>Le groupe</h2>
       <p>
-        Le Roue Libre Brass est une fanfare de rue et banda composée de
-        8 musiciens, principalement des cuivres : 3 trompettes, 3 trombones,
-        un sousaphone et un batteur.
+        Le Roue Libre Brass est une fanfare de rue et banda composée
+        principalement de cuivres — trompettes, trombones, sousaphone et batterie.
+      </p>
+      <p>
+        Pour cette prestation, nous nous engageons sur un effectif de
+        <strong id="p-effectif"></strong>.
       </p>
       <p>
         Notre répertoire est volontairement varié — banda festive pour faire
@@ -232,6 +235,8 @@ if (!d) {
   document.getElementById('proposition').hidden = false;
 
   texte('p-organisateur', d.o);
+  /* Effectif annoncé : volontairement une fourchette, il n'est pas figé à 8. */
+  texte('p-effectif', (d.m || '6 à 8') + ' musiciens');
   texte('p-evenement', d.e);
   texte('p-date', d.d);
   texte('p-horaires', d.h);
@@ -255,6 +260,7 @@ if (!d) {
      exacte de ce qui était affiché au moment de la validation. */
   document.getElementById('f-recap').value =
     'Organisateur : ' + (d.o || '') + '\n' +
+    'Effectif annoncé : ' + (d.m || '6 à 8') + ' musiciens\n' +
     'Événement : '    + (d.e || '') + '\n' +
     'Date : '         + (d.d || '') + '\n' +
     'Horaires : '     + (d.h || '') + '\n' +

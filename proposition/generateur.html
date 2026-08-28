@@ -106,6 +106,10 @@
         <input type="text" id="e" required placeholder="Fête des Laboureurs">
       </label>
       <label>
+        <span>Effectif annoncé</span>
+        <input type="text" id="m" value="6 à 8" placeholder="6 à 8">
+      </label>
+      <label>
         <span>Date <em>*</em></span>
         <input type="text" id="d" required placeholder="Dimanche 13 septembre 2026">
       </label>
@@ -183,6 +187,7 @@ document.getElementById('gen').addEventListener('submit', function (ev) {
   var donnees = {
     o: val('o'), e: val('e'), d: val('d'),
     h: val('h'), l: val('l'),
+    m: val('m') || '6 à 8',
     t: val('t'), f: val('f') || '0',
     n: val('n')
   };
@@ -203,8 +208,8 @@ document.getElementById('gen').addEventListener('submit', function (ev) {
     'Vous trouverez le détail de notre proposition sur cette page :\n' +
     lien + '\n\n' +
     'Elle reprend la présentation du groupe, nos vidéos, le détail de la\n' +
-    'prestation (' + donnees.d + ', ' + donnees.h + ', ' + donnees.l + ') et le\n' +
-    'tarif de ' + total + ' €.\n\n' +
+    'prestation (' + donnees.d + ', ' + donnees.h + ', ' + donnees.l + '), un\n' +
+    'effectif de ' + donnees.m + ' musiciens, et le tarif de ' + total + ' €.\n\n' +
     'Si la proposition vous convient, vous pouvez la valider directement en bas\n' +
     'de la page. Je vous adresse ensuite la convention à signer.\n\n' +
     'N\'hésitez pas à m\'appeler si vous avez la moindre question.\n\n' +
