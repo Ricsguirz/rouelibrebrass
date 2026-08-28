@@ -120,40 +120,61 @@
         Nous vous adresserons ensuite la convention à signer.
       </p>
 
-      <form id="accord" novalidate>
-        <!-- Clé publique du service d'envoi. Elle est visible par conception,
-             elle ne permet que d'envoyer un message vers contact@rouelibrebrass.fr. -->
-        <input type="hidden" name="access_key" value="CLE_WEB3FORMS_A_REMPLACER">
-        <input type="hidden" name="subject" value="Bon pour accord — proposition Roue Libre Brass">
-        <input type="hidden" name="from_name" value="Site Roue Libre Brass">
-        <input type="hidden" name="recapitulatif" id="f-recap">
-        <input type="text" name="botcheck" class="cache" tabindex="-1" autocomplete="off">
+      <!-- Le formulaire est envoyé à FormSubmit, qui transmet le message à
+           contact@rouelibrebrass.fr ET adresse automatiquement une copie au
+           client. Aucun compte, aucune clé : le service n'a besoin que de
+           l'adresse de destination, confirmée une fois pour toutes. -->
+      <form id="accord" action="https://formsubmit.co/contact@rouelibrebrass.fr" method="POST">
+
+        <input type="hidden" name="_subject" value="Bon pour accord — proposition Roue Libre Brass">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://rouelibrebrass.fr/proposition/merci.html">
+        <input type="hidden" name="_autoresponse" value="Bonjour,
+
+Nous avons bien reçu votre accord pour l'animation musicale du Roue Libre Brass. Merci de votre confiance.
+
+Vous trouverez ci-dessous la copie de votre validation. Nous revenons vers vous sous 48 heures avec la convention à signer.
+
+Une question d'ici là ? N'hésitez pas à m'appeler.
+
+Bien cordialement,
+
+Pierre-Henri GUIRAL
+06 22 38 14 05
+contact@rouelibrebrass.fr
+Association Roue Libre Production
+rouelibrebrass.fr">
+
+        <input type="hidden" name="Récapitulatif" id="f-recap">
+        <input type="text" name="_honey" class="cache" tabindex="-1" autocomplete="off">
 
         <div class="champs">
           <label>
             <span>Votre nom et prénom <em>*</em></span>
-            <input type="text" name="signataire" required autocomplete="name">
+            <input type="text" name="Signataire" required autocomplete="name">
           </label>
           <label>
             <span>Votre fonction <em>*</em></span>
-            <input type="text" name="fonction" required placeholder="Maire, président du comité des fêtes…">
+            <input type="text" name="Fonction" required placeholder="Maire, président du comité des fêtes…">
           </label>
           <label>
             <span>Structure <em>*</em></span>
-            <input type="text" name="structure" required>
+            <input type="text" name="Structure" required>
           </label>
+          <!-- Ce champ doit s'appeler exactement « email » : c'est lui que le
+               service utilise pour envoyer l'accusé de réception au client. -->
           <label>
             <span>E-mail <em>*</em></span>
             <input type="email" name="email" required autocomplete="email">
           </label>
           <label>
             <span>Téléphone</span>
-            <input type="tel" name="telephone" autocomplete="tel">
+            <input type="tel" name="Téléphone" autocomplete="tel">
           </label>
         </div>
 
         <label class="accord__case">
-          <input type="checkbox" name="bon_pour_accord" value="oui" required>
+          <input type="checkbox" name="Bon pour accord" value="oui" required>
           <span>
             <strong>Bon pour accord.</strong> Je confirme retenir le Roue Libre Brass
             aux conditions décrites ci-dessus, et j'accepte de recevoir la convention
@@ -171,17 +192,6 @@
           contractuel.
         </p>
       </form>
-    </section>
-
-    <!-- ---------- Confirmation après envoi ---------- -->
-    <section class="bloc bloc--ok" id="confirmation" hidden>
-      <h2>C'est validé, merci !</h2>
-      <p id="conf-texte"></p>
-      <p>
-        Nous revenons vers vous sous 48 heures avec la convention.
-        Une question d'ici là ?
-        <a href="tel:+33622381405">06 22 38 14 05</a>
-      </p>
     </section>
 
   </div>
@@ -272,16 +282,18 @@ if (!d) {
     'Validé le : '    + new Date().toLocaleString('fr-FR');
 }
 
-/* ---------- Envoi du bon pour accord ---------- */
+/* ---------- Envoi du bon pour accord ----------
+   L'envoi est un envoi de formulaire classique (pas de JavaScript) : c'est la
+   seule façon d'obtenir l'accusé de réception automatique vers le client.
+   On se contente donc ici de signaler les champs manquants avant le départ. */
 var form = document.getElementById('accord');
 if (form) {
   form.addEventListener('submit', function (ev) {
-    ev.preventDefault();
-
     var erreur = document.getElementById('form-erreur');
     erreur.hidden = true;
 
     if (!form.checkValidity()) {
+      ev.preventDefault();
       erreur.textContent = 'Merci de compléter les champs obligatoires et de cocher « Bon pour accord ».';
       erreur.hidden = false;
       form.reportValidity();
@@ -291,30 +303,6 @@ if (form) {
     var bouton = document.getElementById('valider');
     bouton.disabled = true;
     bouton.textContent = 'Envoi en cours…';
-
-    fetch('https://api.web3forms.com/submit', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify(Object.fromEntries(new FormData(form)))
-    })
-      .then(function (r) { return r.json(); })
-      .then(function (res) {
-        if (!res.success) throw new Error(res.message || 'Envoi refusé');
-        document.getElementById('conf-texte').textContent =
-          'Votre accord nous est bien parvenu, ' + form.signataire.value.trim() + '. ' +
-          'Une trace horodatée en a été conservée.';
-        form.closest('.bloc').hidden = true;
-        document.getElementById('confirmation').hidden = false;
-        document.getElementById('confirmation').scrollIntoView({ behavior: 'smooth', block: 'center' });
-      })
-      .catch(function () {
-        erreur.innerHTML = 'L\'envoi n\'a pas abouti. Merci de nous prévenir par téléphone au ' +
-          '<a href="tel:+33622381405">06 22 38 14 05</a> ou par e-mail à ' +
-          '<a href="mailto:contact@rouelibrebrass.fr">contact@rouelibrebrass.fr</a>.';
-        erreur.hidden = false;
-        bouton.disabled = false;
-        bouton.textContent = 'Valider la proposition';
-      });
   });
 }
 </script>
