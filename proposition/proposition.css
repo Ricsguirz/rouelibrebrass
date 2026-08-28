@@ -257,11 +257,27 @@
 .doc__pied strong { color: var(--vert); }
 .doc__pied a { color: var(--vert); }
 
+/* ---------------- Reçu de validation ---------------- */
+.recu {
+  margin: 0 0 1rem;
+  padding: 1.1rem 1.2rem;
+  background: #fff;
+  border: 1px solid rgba(15, 92, 62, .25);
+  border-radius: 8px;
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  font-size: .84rem;
+  line-height: 1.75;
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
+
 /* ---------------- Impression ---------------- */
 @media print {
   .bloc--accord, .bloc--ok { display: none; }
   .doc { padding: 0; }
   .bloc { break-inside: avoid; }
+  .bloc__liens { display: none; }
+  .recu { border-color: #999; }
 }
 
 @media (max-width: 560px) {

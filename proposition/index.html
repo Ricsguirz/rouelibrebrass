@@ -129,23 +129,13 @@
         <input type="hidden" name="_subject" value="Bon pour accord — proposition Roue Libre Brass">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_next" value="https://rouelibrebrass.fr/proposition/merci.html">
-        <input type="hidden" name="_autoresponse" value="Bonjour,
+        <!-- Pas d'accusé automatique : les messages du service partent en anglais
+             et finissent en indésirables. Le client obtient à la place un reçu
+             en français, imprimable, sur la page de confirmation ; la convention
+             lui est envoyée depuis contact@rouelibrebrass.fr, qui arrive à bon port. -->
+        <input type="hidden" name="_captcha" value="false">
 
-Nous avons bien reçu votre accord pour l'animation musicale du Roue Libre Brass. Merci de votre confiance.
-
-Vous trouverez ci-dessous la copie de votre validation. Nous revenons vers vous sous 48 heures avec la convention à signer.
-
-Une question d'ici là ? N'hésitez pas à m'appeler.
-
-Bien cordialement,
-
-Pierre-Henri GUIRAL
-06 22 38 14 05
-contact@rouelibrebrass.fr
-Association Roue Libre Production
-rouelibrebrass.fr">
-
-        <input type="hidden" name="Récapitulatif" id="f-recap">
+        <input type="hidden" name="Recapitulatif" id="f-recap">
         <input type="text" name="_honey" class="cache" tabindex="-1" autocomplete="off">
 
         <div class="champs">
@@ -169,12 +159,12 @@ rouelibrebrass.fr">
           </label>
           <label>
             <span>Téléphone</span>
-            <input type="tel" name="Téléphone" autocomplete="tel">
+            <input type="tel" name="Telephone" autocomplete="tel">
           </label>
         </div>
 
         <label class="accord__case">
-          <input type="checkbox" name="Bon pour accord" value="oui" required>
+          <input type="checkbox" name="Accord" value="oui" required>
           <span>
             <strong>Bon pour accord.</strong> Je confirme retenir le Roue Libre Brass
             aux conditions décrites ci-dessus, et j'accepte de recevoir la convention
@@ -299,6 +289,19 @@ if (form) {
       form.reportValidity();
       return;
     }
+
+    /* On met le récapitulatif de côté pour l'afficher sur la page de
+       confirmation : le client repart avec un reçu en français qu'il peut
+       imprimer, sans dépendre d'un e-mail automatique. */
+    try {
+      sessionStorage.setItem('rlb-recu', JSON.stringify({
+        recap: document.getElementById('f-recap').value,
+        signataire: form.Signataire.value.trim(),
+        fonction: form.Fonction.value.trim(),
+        structure: form.Structure.value.trim(),
+        email: form.email.value.trim()
+      }));
+    } catch (e) { /* navigation privée : on continue sans reçu */ }
 
     var bouton = document.getElementById('valider');
     bouton.disabled = true;

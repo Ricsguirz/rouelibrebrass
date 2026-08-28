@@ -30,9 +30,18 @@
 
   <p class="doc__intro">
     Votre accord nous est bien parvenu et une trace horodatée en a été conservée.
-    Une copie vient de vous être envoyée par e-mail — pensez à regarder dans vos
-    indésirables si vous ne la voyez pas.
+    Vous trouverez ci-dessous le récapitulatif de votre validation : vous pouvez
+    l'imprimer ou l'enregistrer en PDF pour vos archives.
   </p>
+
+  <!-- Reçu reconstitué à partir de ce que le visiteur vient de valider -->
+  <section class="bloc" id="recu" hidden>
+    <h2>Votre validation</h2>
+    <pre class="recu" id="recu-texte"></pre>
+    <p class="bloc__liens">
+      <a href="#" id="imprimer">Imprimer ou enregistrer en PDF</a>
+    </p>
+  </section>
 
   <section class="bloc">
     <h2>La convention</h2>
@@ -86,6 +95,30 @@
     <a href="mailto:contact@rouelibrebrass.fr">contact@rouelibrebrass.fr</a>
   </p>
 </footer>
+
+<script>
+/* Le récapitulatif a été mis de côté par la page de proposition juste avant
+   l'envoi. On le réaffiche ici pour que le client garde une trace écrite. */
+try {
+  var brut = sessionStorage.getItem('rlb-recu');
+  if (brut) {
+    var d = JSON.parse(brut);
+    document.getElementById('recu-texte').textContent =
+      d.recap + '\n' +
+      '\nSignataire : ' + d.signataire +
+      '\nFonction : '   + d.fonction +
+      '\nStructure : '  + d.structure +
+      '\nE-mail : '     + d.email +
+      '\nBon pour accord : oui';
+    document.getElementById('recu').hidden = false;
+  }
+} catch (e) { /* pas de reçu disponible : la page reste valable */ }
+
+document.getElementById('imprimer').addEventListener('click', function (ev) {
+  ev.preventDefault();
+  window.print();
+});
+</script>
 
 </body>
 </html>
