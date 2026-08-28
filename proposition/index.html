@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Cette page ne doit JAMAIS apparaître dans Google : elle est destinée
+     à un seul client à la fois, via un lien qu'on lui envoie. -->
+<meta name="robots" content="noindex, nofollow">
+
+<title>Proposition — Le Roue Libre Brass</title>
+<link rel="icon" href="../images/logo-roue-libre-brass.png" type="image/png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="proposition.css">
+</head>
+<body class="doc">
+
+<header class="doc__tete">
+  <img src="../images/logo-roue-libre-brass.png" width="600" height="561" alt="Logo du Roue Libre Brass">
+  <div>
+    <p class="doc__kicker">Proposition d'animation musicale</p>
+    <p class="doc__marque">LE ROUE LIBRE BRASS</p>
+  </div>
+</header>
+
+<main class="doc__corps" id="contenu">
+
+  <!-- Affiché seulement si le lien est incomplet ou abîmé -->
+  <section class="doc__erreur" id="erreur" hidden>
+    <h1>Ce lien est incomplet</h1>
+    <p>
+      Le lien que vous avez reçu semble avoir été tronqué — cela arrive quand un
+      logiciel de messagerie coupe une adresse trop longue.
+    </p>
+    <p>
+      Contactez-nous, nous vous le renvoyons immédiatement :
+      <a href="tel:+33622381405">06 22 38 14 05</a> ·
+      <a href="mailto:contact@rouelibrebrass.fr">contact@rouelibrebrass.fr</a>
+    </p>
+  </section>
+
+  <div id="proposition" hidden>
+
+    <h1 class="doc__titre">Proposition pour <span id="p-organisateur"></span></h1>
+
+    <p class="doc__intro">
+      Merci d'avoir pensé au Roue Libre Brass. C'est avec plaisir que nous
+      participerons à l'animation de votre événement. Vous trouverez ci-dessous
+      le détail de notre proposition.
+    </p>
+
+    <!-- ---------- Le groupe ---------- -->
+    <section class="bloc">
+      <h2>Le groupe</h2>
+      <p>
+        Le Roue Libre Brass est une fanfare de rue et banda composée de
+        8 musiciens, principalement des cuivres : 3 trompettes, 3 trombones,
+        un sousaphone et un batteur.
+      </p>
+      <p>
+        Notre répertoire est volontairement varié — banda festive pour faire
+        chanter, dance pour faire danser, et un registre plus feutré pour les
+        apéritifs. Nous jouons par séquences de 30 minutes entrecoupées de
+        pauses, ce qui permet de rythmer toute la journée.
+      </p>
+      <p>
+        Nous tournons à 100 % à l'énergie humaine : ni sono, ni électricité,
+        ni scène à prévoir.
+      </p>
+      <p class="bloc__liens">
+        <a href="https://rouelibrebrass.fr" target="_blank" rel="noopener">Notre site</a>
+        <a href="https://rouelibrebrass.fr/#voir" target="_blank" rel="noopener">Nos vidéos</a>
+        <a href="https://www.facebook.com/profile.php?id=61554725690284" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/rouelibrebrass" target="_blank" rel="noopener">Instagram</a>
+      </p>
+    </section>
+
+    <!-- ---------- Détail de la prestation ---------- -->
+    <section class="bloc">
+      <h2>Détail de la prestation</h2>
+      <dl class="fiche">
+        <div><dt>Événement</dt><dd id="p-evenement"></dd></div>
+        <div><dt>Date</dt><dd id="p-date"></dd></div>
+        <div><dt>Horaires</dt><dd id="p-horaires"></dd></div>
+        <div><dt>Lieu</dt><dd id="p-lieu"></dd></div>
+      </dl>
+      <p class="fiche__note" id="p-notes" hidden></p>
+    </section>
+
+    <!-- ---------- Tarif ---------- -->
+    <section class="bloc">
+      <h2>Tarif</h2>
+      <table class="tarif">
+        <tbody>
+          <tr><th scope="row">Prestation du groupe</th><td id="p-tarif"></td></tr>
+          <tr><th scope="row">Frais de transport</th><td id="p-frais"></td></tr>
+        </tbody>
+        <tfoot>
+          <tr><th scope="row">Total</th><td id="p-total"></td></tr>
+        </tfoot>
+      </table>
+      <p class="tarif__mention">
+        Association Roue Libre Production · Prestation non soumise à TVA.
+        Le repas et les boissons des musiciens sont à prévoir par l'organisateur.
+      </p>
+    </section>
+
+    <!-- ---------- Validation ---------- -->
+    <section class="bloc bloc--accord">
+      <h2>Valider cette proposition</h2>
+      <p>
+        Pour donner votre accord, renseignez vos coordonnées et validez.
+        Nous vous adresserons ensuite la convention à signer.
+      </p>
+
+      <form id="accord" novalidate>
+        <!-- Clé publique du service d'envoi. Elle est visible par conception,
+             elle ne permet que d'envoyer un message vers contact@rouelibrebrass.fr. -->
+        <input type="hidden" name="access_key" value="CLE_WEB3FORMS_A_REMPLACER">
+        <input type="hidden" name="subject" value="Bon pour accord — proposition Roue Libre Brass">
+        <input type="hidden" name="from_name" value="Site Roue Libre Brass">
+        <input type="hidden" name="recapitulatif" id="f-recap">
+        <input type="text" name="botcheck" class="cache" tabindex="-1" autocomplete="off">
+
+        <div class="champs">
+          <label>
+            <span>Votre nom et prénom <em>*</em></span>
+            <input type="text" name="signataire" required autocomplete="name">
+          </label>
+          <label>
+            <span>Votre fonction <em>*</em></span>
+            <input type="text" name="fonction" required placeholder="Maire, président du comité des fêtes…">
+          </label>
+          <label>
+            <span>Structure <em>*</em></span>
+            <input type="text" name="structure" required>
+          </label>
+          <label>
+            <span>E-mail <em>*</em></span>
+            <input type="email" name="email" required autocomplete="email">
+          </label>
+          <label>
+            <span>Téléphone</span>
+            <input type="tel" name="telephone" autocomplete="tel">
+          </label>
+        </div>
+
+        <label class="accord__case">
+          <input type="checkbox" name="bon_pour_accord" value="oui" required>
+          <span>
+            <strong>Bon pour accord.</strong> Je confirme retenir le Roue Libre Brass
+            aux conditions décrites ci-dessus, et j'accepte de recevoir la convention
+            correspondante par e-mail.
+          </span>
+        </label>
+
+        <p class="accord__erreur" id="form-erreur" hidden></p>
+
+        <button type="submit" class="btn" id="valider">Valider la proposition</button>
+
+        <p class="accord__mention">
+          Votre validation est horodatée et nous est transmise par e-mail.
+          Elle vaut accord de principe ; la convention signée reste le document
+          contractuel.
+        </p>
+      </form>
+    </section>
+
+    <!-- ---------- Confirmation après envoi ---------- -->
+    <section class="bloc bloc--ok" id="confirmation" hidden>
+      <h2>C'est validé, merci !</h2>
+      <p id="conf-texte"></p>
+      <p>
+        Nous revenons vers vous sous 48 heures avec la convention.
+        Une question d'ici là ?
+        <a href="tel:+33622381405">06 22 38 14 05</a>
+      </p>
+    </section>
+
+  </div>
+</main>
+
+<footer class="doc__pied">
+  <p><strong>Association Roue Libre Production</strong></p>
+  <p>330 chemin de Font-Côtes · 26600 Chanos-Curson</p>
+  <p>
+    Pierre-Henri Guiral ·
+    <a href="tel:+33622381405">06 22 38 14 05</a> ·
+    <a href="mailto:contact@rouelibrebrass.fr">contact@rouelibrebrass.fr</a>
+  </p>
+  <p><a href="https://rouelibrebrass.fr">rouelibrebrass.fr</a></p>
+</footer>
+
+<script>
+/* =========================================================================
+   Les informations du client (nom, date, lieu, tarif) ne sont PAS stockées
+   sur le site. Elles voyagent dans la partie du lien située après le « # ».
+   Cette partie n'est jamais transmise aux serveurs ni enregistrée dans les
+   journaux : le tarif reste donc entre l'organisateur et nous.
+   ========================================================================= */
+
+function lireDonnees() {
+  var brut = location.hash.slice(1);
+  if (!brut) return null;
+  try {
+    var json = decodeURIComponent(escape(atob(brut.replace(/-/g, '+').replace(/_/g, '/'))));
+    return JSON.parse(json);
+  } catch (e) {
+    return null;
+  }
+}
+
+function euros(valeur) {
+  var n = Number(valeur);
+  if (!isFinite(n)) return '—';
+  return n.toLocaleString('fr-FR', { minimumFractionDigits: 0, maximumFractionDigits: 2 }) + ' €';
+}
+
+function texte(id, valeur) {
+  document.getElementById(id).textContent = valeur || '—';
+}
+
+var d = lireDonnees();
+
+if (!d) {
+  document.getElementById('erreur').hidden = false;
+} else {
+  document.getElementById('proposition').hidden = false;
+
+  texte('p-organisateur', d.o);
+  texte('p-evenement', d.e);
+  texte('p-date', d.d);
+  texte('p-horaires', d.h);
+  texte('p-lieu', d.l);
+
+  var tarif = Number(d.t) || 0;
+  var frais = Number(d.f) || 0;
+  texte('p-tarif', euros(tarif));
+  texte('p-frais', frais ? euros(frais) : 'Inclus');
+  texte('p-total', euros(tarif + frais));
+
+  if (d.n) {
+    var notes = document.getElementById('p-notes');
+    notes.textContent = d.n;
+    notes.hidden = false;
+  }
+
+  document.title = 'Proposition pour ' + (d.o || 'votre événement') + ' — Le Roue Libre Brass';
+
+  /* Récapitulatif joint au message que nous recevons, pour garder une trace
+     exacte de ce qui était affiché au moment de la validation. */
+  document.getElementById('f-recap').value =
+    'Organisateur : ' + (d.o || '') + '\n' +
+    'Événement : '    + (d.e || '') + '\n' +
+    'Date : '         + (d.d || '') + '\n' +
+    'Horaires : '     + (d.h || '') + '\n' +
+    'Lieu : '         + (d.l || '') + '\n' +
+    'Prestation : '   + euros(tarif) + '\n' +
+    'Transport : '    + (frais ? euros(frais) : 'inclus') + '\n' +
+    'TOTAL : '        + euros(tarif + frais) + '\n' +
+    (d.n ? 'Notes : ' + d.n + '\n' : '') +
+    'Validé le : '    + new Date().toLocaleString('fr-FR');
+}
+
+/* ---------- Envoi du bon pour accord ---------- */
+var form = document.getElementById('accord');
+if (form) {
+  form.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+
+    var erreur = document.getElementById('form-erreur');
+    erreur.hidden = true;
+
+    if (!form.checkValidity()) {
+      erreur.textContent = 'Merci de compléter les champs obligatoires et de cocher « Bon pour accord ».';
+      erreur.hidden = false;
+      form.reportValidity();
+      return;
+    }
+
+    var bouton = document.getElementById('valider');
+    bouton.disabled = true;
+    bouton.textContent = 'Envoi en cours…';
+
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify(Object.fromEntries(new FormData(form)))
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (res) {
+        if (!res.success) throw new Error(res.message || 'Envoi refusé');
+        document.getElementById('conf-texte').textContent =
+          'Votre accord nous est bien parvenu, ' + form.signataire.value.trim() + '. ' +
+          'Une trace horodatée en a été conservée.';
+        form.closest('.bloc').hidden = true;
+        document.getElementById('confirmation').hidden = false;
+        document.getElementById('confirmation').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      })
+      .catch(function () {
+        erreur.innerHTML = 'L\'envoi n\'a pas abouti. Merci de nous prévenir par téléphone au ' +
+          '<a href="tel:+33622381405">06 22 38 14 05</a> ou par e-mail à ' +
+          '<a href="mailto:contact@rouelibrebrass.fr">contact@rouelibrebrass.fr</a>.';
+        erreur.hidden = false;
+        bouton.disabled = false;
+        bouton.textContent = 'Valider la proposition';
+      });
+  });
+}
+</script>
+
+</body>
+</html>

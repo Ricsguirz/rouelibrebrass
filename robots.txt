@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://rouelibrebrass.fr/sitemap.xml
+Disallow: /proposition/

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+
+<title>Générateur de proposition — Roue Libre Brass</title>
+<link rel="icon" href="../images/logo-roue-libre-brass.png" type="image/png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="proposition.css">
+
+<style>
+  .gen { max-width: 780px; margin: 0 auto; }
+  .gen__note {
+    background: rgba(215, 164, 65, .13);
+    border: 1px solid var(--cuivre);
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+    font-size: .95rem;
+    margin-bottom: 2rem;
+  }
+  .gen__note strong { color: var(--vert); }
+
+  textarea {
+    font: inherit;
+    padding: .7rem .85rem;
+    border: 1px solid rgba(15, 92, 62, .3);
+    border-radius: 7px;
+    background: #fff;
+    color: inherit;
+    resize: vertical;
+    min-height: 5rem;
+    width: 100%;
+  }
+  textarea:focus-visible { outline: 2px solid var(--cuivre); outline-offset: 1px; }
+
+  .resultat { margin-top: 2rem; }
+  .resultat pre {
+    background: #fff;
+    border: 1px solid rgba(15, 92, 62, .25);
+    border-radius: 8px;
+    padding: 1rem;
+    overflow-x: auto;
+    font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+    font-size: .8rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-all;
+    margin: 0 0 .9rem;
+  }
+  .actions { display: flex; flex-wrap: wrap; gap: .7rem; }
+  .actions button, .actions a {
+    border: 0;
+    cursor: pointer;
+    font-family: inherit;
+    text-decoration: none;
+  }
+  .btn--sobre {
+    background: transparent;
+    border: 2px solid var(--vert);
+    color: var(--vert);
+  }
+  .btn--sobre:hover { background: rgba(15, 92, 62, .1); color: var(--vert); }
+  .copie { font-size: .9rem; color: var(--vert); font-weight: 700; margin-top: .7rem; }
+</style>
+</head>
+<body class="doc">
+
+<header class="doc__tete">
+  <img src="../images/logo-roue-libre-brass.png" width="600" height="561" alt="Logo du Roue Libre Brass">
+  <div>
+    <p class="doc__kicker">Outil interne</p>
+    <p class="doc__marque">GÉNÉRATEUR DE PROPOSITION</p>
+  </div>
+</header>
+
+<main class="doc__corps gen">
+
+  <h1 class="doc__titre">Créer un lien de proposition</h1>
+
+  <div class="gen__note">
+    <p style="margin:0 0 .5rem">
+      <strong>Rien n'est enregistré nulle part.</strong> Les informations que tu saisis
+      ici servent uniquement à fabriquer un lien. Elles voyagent dans la partie du lien
+      située après le <code>#</code>, qui n'est transmise à aucun serveur.
+    </p>
+    <p style="margin:0">
+      Conséquence : le tarif n'apparaît jamais sur le site public, et seule la personne
+      qui reçoit le lien peut le lire.
+    </p>
+  </div>
+
+  <form id="gen">
+    <div class="champs">
+      <label>
+        <span>Organisateur <em>*</em></span>
+        <input type="text" id="o" required placeholder="Comité des fêtes de Fauconnières">
+      </label>
+      <label>
+        <span>Événement <em>*</em></span>
+        <input type="text" id="e" required placeholder="Fête des Laboureurs">
+      </label>
+      <label>
+        <span>Date <em>*</em></span>
+        <input type="text" id="d" required placeholder="Dimanche 13 septembre 2026">
+      </label>
+      <label>
+        <span>Horaires <em>*</em></span>
+        <input type="text" id="h" required placeholder="11h30 – 13h30">
+      </label>
+      <label>
+        <span>Lieu <em>*</em></span>
+        <input type="text" id="l" required placeholder="Fauconnières (26)">
+      </label>
+      <label>
+        <span>Tarif du groupe (€) <em>*</em></span>
+        <input type="number" id="t" required min="0" step="10" placeholder="500">
+      </label>
+      <label>
+        <span>Frais de transport (€)</span>
+        <input type="number" id="f" min="0" step="10" placeholder="0">
+      </label>
+    </div>
+
+    <label style="display:flex;flex-direction:column;gap:.32rem;margin-top:1rem">
+      <span style="font-size:.82rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--vert)">
+        Précisions (facultatif)
+      </span>
+      <textarea id="n" placeholder="Deux sets de 30 min. Repli en salle des fêtes prévu en cas de pluie."></textarea>
+    </label>
+
+    <button type="submit" class="btn" style="margin-top:1.4rem">Générer le lien</button>
+  </form>
+
+  <section class="resultat" id="resultat" hidden>
+    <div class="bloc">
+      <h2>Le lien à envoyer</h2>
+      <pre id="lien"></pre>
+      <div class="actions">
+        <button type="button" class="btn" id="copier-lien">Copier le lien</button>
+        <a class="btn btn--sobre" id="ouvrir" target="_blank" rel="noopener">Voir la page</a>
+      </div>
+      <p class="copie" id="copie-ok" hidden>Copié.</p>
+    </div>
+
+    <div class="bloc">
+      <h2>Le mail à envoyer</h2>
+      <pre id="mail"></pre>
+      <div class="actions">
+        <button type="button" class="btn" id="copier-mail">Copier le mail</button>
+      </div>
+      <p class="copie" id="copie-mail-ok" hidden>Copié.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="doc__pied">
+  <p>Outil interne — ne pas communiquer ce lien aux clients.</p>
+</footer>
+
+<script>
+var BASE = 'https://rouelibrebrass.fr/proposition/';
+
+function encoder(objet) {
+  var json = JSON.stringify(objet);
+  /* On passe par unescape/encodeURIComponent pour que les accents survivent
+     au codage en base64, puis on rend le résultat compatible avec une URL. */
+  return btoa(unescape(encodeURIComponent(json)))
+    .replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+
+function val(id) { return document.getElementById(id).value.trim(); }
+
+document.getElementById('gen').addEventListener('submit', function (ev) {
+  ev.preventDefault();
+
+  var donnees = {
+    o: val('o'), e: val('e'), d: val('d'),
+    h: val('h'), l: val('l'),
+    t: val('t'), f: val('f') || '0',
+    n: val('n')
+  };
+  if (!donnees.n) delete donnees.n;
+
+  var lien = BASE + '#' + encoder(donnees);
+
+  document.getElementById('lien').textContent = lien;
+  document.getElementById('ouvrir').href = lien;
+
+  var total = (Number(donnees.t) || 0) + (Number(donnees.f) || 0);
+
+  document.getElementById('mail').textContent =
+    'Objet : Proposition Roue Libre Brass — ' + donnees.e + '\n\n' +
+    'Bonjour,\n\n' +
+    'Merci d\'avoir pensé au Roue Libre Brass. C\'est avec plaisir que nous\n' +
+    'participerons à l\'animation de votre événement.\n\n' +
+    'Vous trouverez le détail de notre proposition sur cette page :\n' +
+    lien + '\n\n' +
+    'Elle reprend la présentation du groupe, nos vidéos, le détail de la\n' +
+    'prestation (' + donnees.d + ', ' + donnees.h + ', ' + donnees.l + ') et le\n' +
+    'tarif de ' + total + ' €.\n\n' +
+    'Si la proposition vous convient, vous pouvez la valider directement en bas\n' +
+    'de la page. Je vous adresse ensuite la convention à signer.\n\n' +
+    'N\'hésitez pas à m\'appeler si vous avez la moindre question.\n\n' +
+    'Bien cordialement,\n\n' +
+    'Pierre-Henri GUIRAL\n' +
+    '06 22 38 14 05\n' +
+    'contact@rouelibrebrass.fr\n' +
+    'Association Roue Libre Production\n' +
+    '330 chemin de Font-Côtes — 26600 Chanos-Curson\n' +
+    'rouelibrebrass.fr';
+
+  document.getElementById('resultat').hidden = false;
+  document.getElementById('resultat').scrollIntoView({ behavior: 'smooth' });
+});
+
+function brancherCopie(bouton, source, temoin) {
+  document.getElementById(bouton).addEventListener('click', function () {
+    navigator.clipboard.writeText(document.getElementById(source).textContent).then(function () {
+      var t = document.getElementById(temoin);
+      t.hidden = false;
+      setTimeout(function () { t.hidden = true; }, 2500);
+    });
+  });
+}
+brancherCopie('copier-lien', 'lien', 'copie-ok');
+brancherCopie('copier-mail', 'mail', 'copie-mail-ok');
+</script>
+
+</body>
+</html>
