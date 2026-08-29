@@ -39,7 +39,7 @@
     <h2>Votre validation</h2>
     <pre class="recu" id="recu-texte"></pre>
     <p class="bloc__liens">
-      <a href="#" id="imprimer">Imprimer ou enregistrer en PDF</a>
+      <a href="#" id="enregistrer">Enregistrer en PDF</a>
     </p>
   </section>
 
@@ -96,27 +96,62 @@
   </p>
 </footer>
 
+<script src="recu-pdf.js"></script>
 <script>
 /* Le récapitulatif a été mis de côté par la page de proposition juste avant
    l'envoi. On le réaffiche ici pour que le client garde une trace écrite. */
+var donnees = null;
+
 try {
   var brut = sessionStorage.getItem('rlb-recu');
   if (brut) {
-    var d = JSON.parse(brut);
+    donnees = JSON.parse(brut);
     document.getElementById('recu-texte').textContent =
-      d.recap + '\n' +
-      '\nSignataire : ' + d.signataire +
-      '\nFonction : '   + d.fonction +
-      '\nStructure : '  + d.structure +
-      '\nE-mail : '     + d.email +
+      donnees.recap +
+      '\n\nSignataire : '  + donnees.signataire +
+      '\nFonction : '      + donnees.fonction +
+      (donnees.structure ? '\nStructure : ' + donnees.structure : '') +
+      '\nE-mail : '        + donnees.email +
+      '\nTéléphone : '     + (donnees.telephone || '—') +
       '\nBon pour accord : oui';
     document.getElementById('recu').hidden = false;
   }
 } catch (e) { /* pas de reçu disponible : la page reste valable */ }
 
-document.getElementById('imprimer').addEventListener('click', function (ev) {
+document.getElementById('enregistrer').addEventListener('click', function (ev) {
   ev.preventDefault();
-  window.print();
+  if (!donnees) { window.print(); return; }
+
+  var blocs = [
+    { style: 'titre',      texte: 'Le Roue Libre Brass' },
+    { style: 'soustitre',  texte: 'Reçu de validation de proposition' },
+    { style: 'espace',     taille: 14 }
+  ];
+
+  donnees.recap.split('\n').forEach(function (l) {
+    if (l.trim()) blocs.push({ style: 'texte', texte: l });
+  });
+
+  blocs.push({ style: 'espace', taille: 14 });
+  blocs.push({ style: 'soustitre', texte: 'Signataire' });
+  blocs.push({ style: 'texte', texte: donnees.signataire + ' — ' + donnees.fonction });
+  if (donnees.structure) blocs.push({ style: 'texte', texte: donnees.structure });
+  blocs.push({ style: 'texte', texte: donnees.email + ' · ' + (donnees.telephone || '') });
+  blocs.push({ style: 'texte', texte: 'Bon pour accord : oui' });
+
+  blocs.push({ style: 'espace', taille: 20 });
+  blocs.push({ style: 'soustitre', texte: 'Association Roue Libre Production' });
+  blocs.push({ style: 'texte', texte: '330 chemin de Font-Côtes — 26600 Chanos-Curson' });
+  blocs.push({ style: 'texte', texte: 'Pierre-Henri Guiral — 06 22 38 14 05 — contact@rouelibrebrass.fr' });
+  blocs.push({ style: 'texte', texte: 'rouelibrebrass.fr' });
+  blocs.push({ style: 'espace', taille: 14 });
+  blocs.push({ style: 'texte', texte: 'Ce reçu atteste de votre accord de principe. La convention signée' });
+  blocs.push({ style: 'texte', texte: 'reste le document contractuel.' });
+
+  var nom = 'Recu-Roue-Libre-Brass-' +
+    new Date().toISOString().slice(0, 10) + '.pdf';
+
+  RecuPDF.telecharger(RecuPDF.construire(blocs), nom);
 });
 </script>
 

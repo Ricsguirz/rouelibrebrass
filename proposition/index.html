@@ -147,9 +147,11 @@
             <span>Votre fonction <em>*</em></span>
             <input type="text" name="Fonction" required placeholder="Maire, président du comité des fêtes…">
           </label>
+          <!-- Facultatif : un particulier qui organise un mariage ou un
+               anniversaire n'a pas de structure à déclarer. -->
           <label>
-            <span>Structure <em>*</em></span>
-            <input type="text" name="Structure" required>
+            <span>Structure</span>
+            <input type="text" name="Structure" placeholder="Mairie, comité des fêtes… ou rien">
           </label>
           <!-- Ce champ doit s'appeler exactement « email » : c'est lui que le
                service utilise pour envoyer l'accusé de réception au client. -->
@@ -157,9 +159,10 @@
             <span>E-mail <em>*</em></span>
             <input type="email" name="email" required autocomplete="email">
           </label>
+          <!-- Obligatoire : c'est le numéro sur lequel on vous joint le jour J. -->
           <label>
-            <span>Téléphone</span>
-            <input type="tel" name="Telephone" autocomplete="tel">
+            <span>Téléphone <em>*</em></span>
+            <input type="tel" name="Telephone" required autocomplete="tel">
           </label>
         </div>
 
@@ -299,7 +302,8 @@ if (form) {
         signataire: form.Signataire.value.trim(),
         fonction: form.Fonction.value.trim(),
         structure: form.Structure.value.trim(),
-        email: form.email.value.trim()
+        email: form.email.value.trim(),
+        telephone: form.Telephone.value.trim()
       }));
     } catch (e) { /* navigation privée : on continue sans reçu */ }
 

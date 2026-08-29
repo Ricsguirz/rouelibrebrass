@@ -1,0 +1,32 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><title>Test PDF</title></head>
+<body style="font-family:sans-serif;padding:40px">
+<h1>Test du générateur de PDF</h1>
+<p id="etat">…</p>
+<script src="recu-pdf.js"></script>
+<script>
+var blocs = [
+  { style:'titre', texte:'Le Roue Libre Brass' },
+  { style:'soustitre', texte:'Reçu de validation de proposition' },
+  { style:'espace', taille:14 },
+  { style:'texte', texte:'Organisateur : Comité des fêtes de Fauconnières' },
+  { style:'texte', texte:'Effectif annoncé : 6 à 8 musiciens' },
+  { style:'texte', texte:'Événement : Fête des Laboureurs' },
+  { style:'texte', texte:'Date : Dimanche 6 mars 2027' },
+  { style:'texte', texte:'Prestation : 600 €' },
+  { style:'texte', texte:'TOTAL : 650 €' },
+  { style:'texte', texte:'Montant à compléter : …………… €uros' },
+  { style:'espace', taille:14 },
+  { style:'soustitre', texte:'Association Roue Libre Production' },
+  { style:'texte', texte:'330 chemin de Font-Côtes — 26600 Chanos-Curson' }
+];
+var blob = RecuPDF.construire(blocs);
+var fr = new FileReader();
+fr.onload = function(){
+  var b64 = fr.result.split(',')[1];
+  document.getElementById('etat').textContent = 'TAILLE=' + blob.size + ' TYPE=' + blob.type;
+  document.title = 'OK ' + blob.size;
+  window.__pdf64 = b64;
+};
+fr.readAsDataURL(blob);
+</script>
+</body></html>
