@@ -230,20 +230,20 @@ document.getElementById('gen').addEventListener('submit', function (ev) {
   document.getElementById('lien').textContent = lien;
   document.getElementById('ouvrir').href = lien;
 
-  var total = (Number(donnees.t) || 0) + (Number(donnees.f) || 0);
-
+  /* Le montant n'apparaît volontairement pas dans le mail : il ne vit que
+     sur la page de proposition, qui peut expirer ou être désactivée. */
   document.getElementById('mail').textContent =
     'Objet : Proposition Roue Libre Brass — ' + donnees.e + '\n\n' +
     'Bonjour,\n\n' +
-    'Merci d\'avoir pensé au Roue Libre Brass. C\'est avec plaisir que nous\n' +
-    'participerons à l\'animation de votre événement.\n\n' +
-    'Vous trouverez le détail de notre proposition sur cette page :\n' +
-    lien + '\n\n' +
-    'Elle reprend la présentation du groupe, nos vidéos, le détail de la\n' +
-    'prestation (' + donnees.d + ', ' + donnees.h + ', ' + donnees.l + '), un\n' +
-    'effectif de ' + donnees.m + ' musiciens, et le tarif de ' + total + ' €.\n\n' +
-    'Si la proposition vous convient, vous pouvez la valider directement en bas\n' +
-    'de la page. Je vous adresse ensuite la convention à signer.\n\n' +
+    'Merci d\'avoir pensé au Roue Libre Brass. C\'est avec plaisir que nous participerons à l\'animation de votre événement.\n' +
+    'Je n\'ai pas encore eu les retours de tous les musiciens s\'ils sont disponibles, je vous tiendrai au courant si c\'est bon pour nous.\n\n' +
+    'En attendant, vous trouverez le détail de notre proposition en cliquant sur le lien ci-dessous :\n' +
+    '--> ' + lien + '\n\n' +
+    'Elle reprend la présentation du groupe, nos vidéos, le détail de la prestation (' +
+      donnees.d + ', ' + donnees.h + ', ' + donnees.l + '), un effectif de ' +
+      donnees.m + ' musiciens, et le tarif.\n' +
+    'Si la proposition vous convient, vous pouvez la valider directement en bas de la page.\n' +
+    'Si nous sommes également disponibles, je vous adresserai ensuite la convention à signer pour valider définitivement la prestation.\n\n' +
     'N\'hésitez pas à m\'appeler si vous avez la moindre question.\n\n' +
     'Bien cordialement,\n\n' +
     'Pierre-Henri GUIRAL\n' +
