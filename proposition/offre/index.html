@@ -213,6 +213,7 @@
   <p><a href="https://rouelibrebrass.fr">rouelibrebrass.fr</a></p>
 </footer>
 
+<script src="../suivi.js"></script>
 <script>
 /* =========================================================================
    Les informations du client (nom, date, lieu, tarif) ne sont PAS stockées
@@ -351,6 +352,19 @@ if (form) {
         telephone: form.Telephone.value.trim()
       }));
     } catch (e) { /* navigation privée : on continue sans reçu */ }
+
+    /* La ligne correspondante du tableau de suivi passe en « Oui ».
+       L'envoi est de type « beacon » : il aboutit même si la page part
+       aussitôt vers la page de confirmation. */
+    if (d && d.i) {
+      Suivi.envoyer({
+        action: 'validation',
+        reference: d.i,
+        signataire: form.Signataire.value.trim(),
+        telephone: form.Telephone.value.trim(),
+        valideeLe: Suivi.maintenant()
+      });
+    }
 
     var bouton = document.getElementById('valider');
     bouton.disabled = true;

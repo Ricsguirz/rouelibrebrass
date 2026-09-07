@@ -181,6 +181,7 @@
   <p>Outil interne — ne pas communiquer ce lien aux clients.</p>
 </footer>
 
+<script src="suivi.js"></script>
 <script>
 var BASE = 'https://rouelibrebrass.fr/proposition/offre/';
 
@@ -226,6 +227,19 @@ document.getElementById('gen').addEventListener('submit', function (ev) {
 
   var lien = BASE + '#' + encoder(donnees);
   document.getElementById('reference').textContent = donnees.i;
+
+  /* Une ligne s'ajoute au tableau de suivi. Sans effet si le suivi
+     n'est pas configuré. */
+  Suivi.envoyer({
+    action: 'proposition',
+    organisateur: donnees.o,
+    dateDemandee: donnees.d,
+    envoyeeLe: Suivi.aujourdhui(),
+    reference: donnees.i,
+    evenement: donnees.e,
+    lieu: donnees.l,
+    montant: (Number(donnees.t) || 0) + (Number(donnees.f) || 0)
+  });
 
   document.getElementById('lien').textContent = lien;
   document.getElementById('ouvrir').href = lien;
