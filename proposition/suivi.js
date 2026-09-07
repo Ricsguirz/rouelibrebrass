@@ -11,7 +11,7 @@
   /* Adresse de l'application web Apps Script, à renseigner une fois pour
      toutes. Elle ressemble à :
      https://script.google.com/macros/s/AKfycb.../exec  */
-  var ADRESSE_SUIVI = '';
+  var ADRESSE_SUIVI = 'https://script.google.com/macros/s/AKfycbxGM6RRBqC3gZSV8ozK9Xqwp_mWbBWaLefwP4lfH3WTp98t0ydXKVL4skgrYxwquevUyQ/exec';
 
   /* L'envoi est volontairement « sans retour » : on ne lit pas la réponse et
      on n'attend pas. Le suivi ne doit jamais ralentir ni bloquer un client. */
