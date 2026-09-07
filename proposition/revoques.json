@@ -1,0 +1,4 @@
+{
+  "_mode_d_emploi": "Pour désactiver une proposition déjà envoyée, ajoutez sa référence (6 caractères, affichée par le générateur) dans la liste ci-dessous, entre guillemets et séparée par une virgule. Exemple : \"revoquees\": [\"AB12CD\", \"XY9KTR\"]. La modification est active en une ou deux minutes.",
+  "revoquees": []
+}

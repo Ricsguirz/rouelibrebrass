@@ -29,6 +29,20 @@
 
 <main class="doc__corps" id="contenu">
 
+  <!-- Affiché quand la proposition n'est plus valable -->
+  <section class="doc__erreur" id="perimee" hidden>
+    <h1>Cette proposition n'est plus valable</h1>
+    <p>
+      Sa durée de validité est dépassée, ou elle a été remplacée par une version
+      plus récente.
+    </p>
+    <p>
+      Contactez-nous, nous vous en établissons une nouvelle immédiatement :
+      <a href="tel:+33622381405">06 22 38 14 05</a> ·
+      <a href="mailto:contact@rouelibrebrass.fr">contact@rouelibrebrass.fr</a>
+    </p>
+  </section>
+
   <!-- Affiché seulement si le lien est incomplet ou abîmé -->
   <section class="doc__erreur" id="erreur" hidden>
     <h1>Ce lien est incomplet</h1>
@@ -103,6 +117,7 @@
           <tr><th scope="row">Total</th><td id="p-total"></td></tr>
         </tfoot>
       </table>
+      <p class="tarif__mention" id="validite" hidden></p>
       <p class="tarif__mention">
         Association Roue Libre Production · Prestation non soumise à TVA.
         Le repas et les boissons des musiciens sont à prévoir par l'organisateur.
@@ -227,10 +242,21 @@ function texte(id, valeur) {
   document.getElementById(id).textContent = valeur || '—';
 }
 
+/* Aujourd'hui au format AAAA-MM-JJ, dans le fuseau du visiteur. */
+function aujourdhui() {
+  var n = new Date();
+  return n.getFullYear() + '-' +
+         ('0' + (n.getMonth() + 1)).slice(-2) + '-' +
+         ('0' + n.getDate()).slice(-2);
+}
+
 var d = lireDonnees();
 
 if (!d) {
   document.getElementById('erreur').hidden = false;
+} else if (d.x && aujourdhui() > d.x) {
+  /* Date de validité dépassée : on n'affiche ni le détail ni le tarif. */
+  document.getElementById('perimee').hidden = false;
 } else {
   document.getElementById('proposition').hidden = false;
 
@@ -255,6 +281,28 @@ if (!d) {
   }
 
   document.title = 'Proposition pour ' + (d.o || 'votre événement') + ' — Le Roue Libre Brass';
+
+  if (d.x) {
+    var jour = d.x.split('-');
+    document.getElementById('validite').textContent =
+      'Proposition valable jusqu’au ' + jour[2] + '/' + jour[1] + '/' + jour[0] + '.';
+    document.getElementById('validite').hidden = false;
+  }
+
+  /* Désactivation d'un lien déjà envoyé : on interroge la liste des références
+     retirées. En cas d'échec réseau on laisse la proposition visible — mieux
+     vaut afficher une offre retirée que bloquer un client de bonne foi. */
+  if (d.i) {
+    fetch('revoques.json', { cache: 'no-store' })
+      .then(function (r) { return r.json(); })
+      .then(function (liste) {
+        if (liste && liste.revoquees && liste.revoquees.indexOf(d.i) !== -1) {
+          document.getElementById('proposition').hidden = true;
+          document.getElementById('perimee').hidden = false;
+        }
+      })
+      .catch(function () { /* on n'empêche rien */ });
+  }
 
   /* Récapitulatif joint au message que nous recevons, pour garder une trace
      exacte de ce qui était affiché au moment de la validation. */

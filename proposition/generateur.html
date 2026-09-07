@@ -129,6 +129,10 @@
         <span>Frais de transport (€)</span>
         <input type="number" id="f" min="0" step="10" placeholder="0">
       </label>
+      <label>
+        <span>Proposition valable jusqu'au</span>
+        <input type="date" id="x">
+      </label>
     </div>
 
     <label style="display:flex;flex-direction:column;gap:.32rem;margin-top:1rem">
@@ -142,6 +146,15 @@
   </form>
 
   <section class="resultat" id="resultat" hidden>
+    <div class="bloc">
+      <h2>Référence de cette proposition</h2>
+      <p style="font-family:ui-monospace,Consolas,monospace;font-size:1.6rem;font-weight:700;color:var(--vert);margin:0 0 .5rem" id="reference"></p>
+      <p style="font-size:.92rem;color:var(--gris);margin:0">
+        Note-la. C'est elle qui permet de <strong>désactiver ce lien</strong> plus tard,
+        en l'ajoutant au fichier <code>revoques.json</code> sur GitHub.
+      </p>
+    </div>
+
     <div class="bloc">
       <h2>Le lien à envoyer</h2>
       <pre id="lien"></pre>
@@ -181,6 +194,21 @@ function encoder(objet) {
 
 function val(id) { return document.getElementById(id).value.trim(); }
 
+/* Référence courte et unique, qui permettra de désactiver ce lien précis. */
+function reference() {
+  var lettres = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';  // sans I, O, 0, 1 : illisibles
+  var r = '';
+  for (var i = 0; i < 6; i++) r += lettres[Math.floor(Math.random() * lettres.length)];
+  return r;
+}
+
+/* Par défaut, une proposition est valable un mois. */
+window.addEventListener('DOMContentLoaded', function () {
+  var d = new Date();
+  d.setMonth(d.getMonth() + 1);
+  document.getElementById('x').value = d.toISOString().slice(0, 10);
+});
+
 document.getElementById('gen').addEventListener('submit', function (ev) {
   ev.preventDefault();
 
@@ -189,11 +217,15 @@ document.getElementById('gen').addEventListener('submit', function (ev) {
     h: val('h'), l: val('l'),
     m: val('m') || '6 à 8',
     t: val('t'), f: val('f') || '0',
+    x: val('x'),                 // date de fin de validité
+    i: reference(),              // référence unique, pour pouvoir désactiver le lien
     n: val('n')
   };
   if (!donnees.n) delete donnees.n;
+  if (!donnees.x) delete donnees.x;
 
   var lien = BASE + '#' + encoder(donnees);
+  document.getElementById('reference').textContent = donnees.i;
 
   document.getElementById('lien').textContent = lien;
   document.getElementById('ouvrir').href = lien;
