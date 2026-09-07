@@ -166,12 +166,26 @@
     </div>
 
     <div class="bloc">
-      <h2>Le mail à envoyer</h2>
+      <h2>L'objet du mail</h2>
+      <pre id="objet"></pre>
+      <div class="actions">
+        <button type="button" class="btn" id="copier-objet">Copier l'objet</button>
+      </div>
+      <p class="copie" id="copie-objet-ok" hidden>Copié.</p>
+    </div>
+
+    <div class="bloc">
+      <h2>Le message</h2>
       <pre id="mail"></pre>
       <div class="actions">
-        <button type="button" class="btn" id="copier-mail">Copier le mail</button>
+        <button type="button" class="btn" id="copier-mail">Copier le message</button>
       </div>
       <p class="copie" id="copie-mail-ok" hidden>Copié.</p>
+      <p style="font-size:.92rem;color:var(--gris);margin:.9rem 0 0">
+        <strong style="color:var(--vert)">Utilise le bouton</strong>, pas une sélection
+        à la souris : un copier-coller manuel emporte la mise en forme de cette page,
+        et ton mail arrive chez l'organisateur dans un cadre gris en police de code.
+      </p>
     </div>
   </section>
 
@@ -246,8 +260,10 @@ document.getElementById('gen').addEventListener('submit', function (ev) {
 
   /* Le montant n'apparaît volontairement pas dans le mail : il ne vit que
      sur la page de proposition, qui peut expirer ou être désactivée. */
+  document.getElementById('objet').textContent =
+    'Proposition Roue Libre Brass — ' + donnees.e;
+
   document.getElementById('mail').textContent =
-    'Objet : Proposition Roue Libre Brass — ' + donnees.e + '\n\n' +
     'Bonjour,\n\n' +
     'Merci d\'avoir pensé au Roue Libre Brass. C\'est avec plaisir que nous participerons à l\'animation de votre événement.\n' +
     'Je n\'ai pas encore eu les retours de tous les musiciens s\'ils sont disponibles, je vous tiendrai au courant si c\'est bon pour nous.\n\n' +
@@ -281,6 +297,7 @@ function brancherCopie(bouton, source, temoin) {
   });
 }
 brancherCopie('copier-lien', 'lien', 'copie-ok');
+brancherCopie('copier-objet', 'objet', 'copie-objet-ok');
 brancherCopie('copier-mail', 'mail', 'copie-mail-ok');
 </script>
 
