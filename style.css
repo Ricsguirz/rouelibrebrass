@@ -412,6 +412,22 @@ a { color: inherit; }
 .faq__answer {
   padding: 0 2.6rem 1.4rem 0;
 }
+/* Prix d'appel, mis en avant en tête de réponse */
+.faq__prix {
+  font-size: 1.05rem;
+  color: var(--gris);
+  margin: 0 0 1rem;
+}
+.faq__prix strong {
+  font-family: "Anton", Impact, sans-serif;
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--vert);
+  letter-spacing: 0.01em;
+  vertical-align: -0.1em;
+  margin-left: 0.15rem;
+}
+
 .faq__answer p { margin: 0 0 0.9rem; }
 .faq__answer p:last-child { margin-bottom: 0; }
 .faq__answer strong { color: var(--vert); }
