@@ -1,9 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://rouelibrebrass.fr/</loc>
-    <lastmod>2026-08-30</lastmod>
+    <lastmod>2026-09-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+
+    <!-- Les photos sont déclarées ici pour que Google Images les découvre
+         sans attendre. À compléter si de nouvelles photos sont ajoutées. -->
+    <image:image>
+      <image:loc>https://rouelibrebrass.fr/images/fanfare-banda-roue-libre-brass-drome.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://rouelibrebrass.fr/images/fanfare-roue-libre-brass-chabeuil.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://rouelibrebrass.fr/images/fanfare-carnaval-les-fauconnieres.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://rouelibrebrass.fr/images/banda-roue-libre-brass-najac.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://rouelibrebrass.fr/images/fanfare-animation-repas-truffes.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://rouelibrebrass.fr/images/fanfare-animation-anniversaire.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://rouelibrebrass.fr/images/fanfare-cuivres-roue-libre-brass-vercors.jpg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://rouelibrebrass.fr/images/logo-roue-libre-brass.png</image:loc>
+    </image:image>
   </url>
 </urlset>
