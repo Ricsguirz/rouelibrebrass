@@ -67,13 +67,13 @@
     b.push({ style: 'soustitre', texte: 'BON POUR ACCORD' });
     b.push({ style: 'texte', texte: 'Pour valider cette proposition, merci de compléter et de signer ce document, puis de nous le retourner par e-mail à contact@rouelibrebrass.fr. Nous vous adresserons ensuite la convention.' });
     b.push({ style: 'espace', taille: 10 });
-    b.push({ style: 'texte', texte: 'Nom et prénom : ..........................................................................................' });
+    b.push({ style: 'texte', texte: 'Nom et prénom : ......................................................................' });
     b.push({ style: 'espace', taille: 6 });
-    b.push({ style: 'texte', texte: 'Fonction : ..................................................................................................' });
+    b.push({ style: 'texte', texte: 'Fonction : ...........................................................................' });
     b.push({ style: 'espace', taille: 6 });
-    b.push({ style: 'texte', texte: 'Structure : ................................................................................................' });
+    b.push({ style: 'texte', texte: 'Structure : ..........................................................................' });
     b.push({ style: 'espace', taille: 6 });
-    b.push({ style: 'texte', texte: 'Téléphone : ...............................................     Date : ...................................' });
+    b.push({ style: 'texte', texte: 'Téléphone : ......................................     Date : ..........................' });
     b.push({ style: 'espace', taille: 10 });
     b.push({ style: 'texte', texte: 'Signature, précédée de la mention « Bon pour accord » :' });
     b.push({ style: 'espace', taille: 56 });
