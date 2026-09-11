@@ -131,6 +131,9 @@
         Pour donner votre accord, renseignez vos coordonnées et validez.
         Nous vous adresserons ensuite la convention à signer.
       </p>
+      <p class="bloc__liens">
+        <a href="#" id="pdf-proposition">Vous préférez un document ? Télécharger la proposition en PDF</a>
+      </p>
 
       <!-- Le formulaire est envoyé à FormSubmit, qui transmet le message à
            contact@rouelibrebrass.fr ET adresse automatiquement une copie au
@@ -213,6 +216,8 @@
   <p><a href="https://rouelibrebrass.fr">rouelibrebrass.fr</a></p>
 </footer>
 
+<script src="../recu-pdf.js"></script>
+<script src="../proposition-pdf.js"></script>
 <script src="../suivi.js"></script>
 <script>
 /* =========================================================================
@@ -325,6 +330,16 @@ if (!d) {
    L'envoi est un envoi de formulaire classique (pas de JavaScript) : c'est la
    seule façon d'obtenir l'accusé de réception automatique vers le client.
    On se contente donc ici de signaler les champs manquants avant le départ. */
+/* Téléchargement de la proposition en PDF, avec encadré « Bon pour accord »
+   à signer — pour ceux qui préfèrent un document ou doivent le faire viser. */
+var lienPdf = document.getElementById('pdf-proposition');
+if (lienPdf) {
+  lienPdf.addEventListener('click', function (ev) {
+    ev.preventDefault();
+    if (d) PropositionPDF.telecharger(d);
+  });
+}
+
 var form = document.getElementById('accord');
 if (form) {
   form.addEventListener('submit', function (ev) {

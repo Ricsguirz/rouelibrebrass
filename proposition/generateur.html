@@ -161,6 +161,7 @@
       <div class="actions">
         <button type="button" class="btn" id="copier-lien">Copier le lien</button>
         <a class="btn btn--sobre" id="ouvrir" target="_blank" rel="noopener">Voir la page</a>
+        <button type="button" class="btn btn--sobre" id="pdf">Télécharger en PDF</button>
       </div>
       <p class="copie" id="copie-ok" hidden>Copié.</p>
     </div>
@@ -195,6 +196,8 @@
   <p>Outil interne — ne pas communiquer ce lien aux clients.</p>
 </footer>
 
+<script src="recu-pdf.js"></script>
+<script src="proposition-pdf.js"></script>
 <script src="suivi.js"></script>
 <script>
 var BASE = 'https://rouelibrebrass.fr/proposition/offre/';
@@ -241,6 +244,7 @@ document.getElementById('gen').addEventListener('submit', function (ev) {
 
   var lien = BASE + '#' + encoder(donnees);
   document.getElementById('reference').textContent = donnees.i;
+  derniereProposition = donnees;
 
   /* Une ligne s'ajoute au tableau de suivi. Sans effet si le suivi
      n'est pas configuré. */
@@ -297,6 +301,14 @@ function brancherCopie(bouton, source, temoin) {
   });
 }
 brancherCopie('copier-lien', 'lien', 'copie-ok');
+
+/* Version PDF, à joindre au mail pour les organisateurs qui ne peuvent pas
+   ouvrir le lien (postes de mairie verrouillés). Même contenu que la page,
+   avec un encadré « Bon pour accord » à signer et renvoyer. */
+var derniereProposition = null;
+document.getElementById('pdf').addEventListener('click', function () {
+  if (derniereProposition) PropositionPDF.telecharger(derniereProposition);
+});
 brancherCopie('copier-objet', 'objet', 'copie-objet-ok');
 brancherCopie('copier-mail', 'mail', 'copie-mail-ok');
 </script>
