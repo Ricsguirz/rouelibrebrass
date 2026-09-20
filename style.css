@@ -128,10 +128,16 @@ a { color: inherit; }
   filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.45));
 }
 
+/* Cette ligne est maintenant à l'intérieur du titre principal (h1) :
+   on redonne donc explicitement la police et la hauteur de ligne du texte
+   courant, sinon elle hériterait de l'énorme police du titre. */
 .hero__kicker {
+  display: block;
   margin: 0 0 0.9rem;
+  font-family: "Inter", system-ui, sans-serif;
   font-size: 0.85rem;
   font-weight: 800;
+  line-height: 1.5;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--menthe);
